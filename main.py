@@ -10,8 +10,21 @@ For this you can generate a list of non-overlapping windows i.e. pairs of coordi
 then check with this function how many positions are good within this window.
 It will be a number in range from 0 to end-start.
 Then you can get percentage of good sites by dividing it by window length.
-The function calls tabix from SAMtools, so  load module BioTools , it contains SAMtools and other useful things as well.
+The function calls tabix from SAMtools, so load module BioTools , it contains SAMtools and other useful things as well.
 Chromosome parameter is just the chromosome name (look at the VCF file name its "chr[something]")
+
+The idea was to split chromosome in 100k windows, i.e. the first window: 1 to 100000 ,
+the second 100001 to 200000, the third 200001 to 300000,
+but the window size can be changed if it turns out that there is not enough information
+in 100kbp to build trees or if it will be too computationally
+costly to build 41M(length of the chromosome)/100K(window size) trees.
+
+VCF apart from it's header (lines starting with "#" ) is just a table -
+rows are variable sites (a bit more complex in fact, but good enough so far), columns are individuals.
+First 9 columns are not individuals, but info about sites - chromosome name,  coordinate, which nucleotide
+changed to which etc. So it's basically just "Filter rows which have in field 'coordinate'
+a value which is between S and E, in at least one pair of (S,E) in a list. list of pairs (S,E)
+is a list of coordinates of good windows Starts and Ends".
 """
 
 import sys
@@ -45,3 +58,25 @@ def get_accessible_size(accessible_fn, chrom, start=None, end=None):
     except IndexError:
         access = 0
     return access
+
+def get_good_windows(accessible_fn, chrom, window_size=100000):
+    """
+    Returns a list of (start, end) tuples of windows of size window_size
+    that have at least 90% of sites accessible in the given chromosome.
+    """
+    chrom_len = get_accessible_size(accessible_fn, chrom)
+    good_windows = []
+    for start in range(0, chrom_len, window_size):
+        end = min(start + window_size, chrom_len)
+        if get_accessible_size(accessible_fn, chrom, start, end) / (end - start) > 0.9:
+            good_windows.append((start, end))
+    return good_windows
+
+def main():
+    pass
+    # get_good_windows(".bed.gz", "chr1")
+
+
+if __name__ == "__main__":
+    main()
+
