@@ -1,5 +1,13 @@
 from Bio import Phylo
 
+"""
+OK, easiest (not optimal, but performance here doesn't matter too much) way to do that is to check all nodes in a tree:
+Get a list of OTUs under a node. Check if they belong to the same taxon. If yes - write down node number and count of OTUS(leaves) under this node (LC)
+Sort this list by LC. Iterate through list in a high to low LC order. For each row check if nodes lower in the list are descendants of this node, if they are - remove them from list.
+Once you finished - you have a list of not nested nodes, each of them is an last common ancestor for a set of samples  which belong to the same taxon. Then for each of these nodes you get a list of OTUs, pick two at random and it's done.
+Just be careful to not to miss boundary cases (e.g. node which has only two children and they're samples of different species).
+"""
+
 
 def select_individuals():
     tree = Phylo.read(r"inversion_samples_noninverted_pwd_nj_tree_ancestral_rooted.newick.nwk", "newick")
