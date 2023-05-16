@@ -92,7 +92,7 @@ def get_good_windows(accessible_fn, chrom, window_size=100000, reference_genome=
 def main():
 
     # get_good_windows(".bed.gz", "chr1")
-    ptt.tt()
+    ptt.select_individuals()
 
     return 0
 

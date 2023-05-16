@@ -1,7 +1,7 @@
 from Bio import Phylo
 
 
-def tt():
+def select_individuals():
     tree = Phylo.read(r"inversion_samples_noninverted_pwd_nj_tree_ancestral_rooted.newick.nwk", "newick")
     # now tree is a root node of the tree
     # let's get all internal nodes:
