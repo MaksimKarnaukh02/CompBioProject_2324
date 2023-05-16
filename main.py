@@ -37,7 +37,8 @@ import os
 import subprocess
 import pandas as pd
 
-import python_tree_traversing as ptt
+import src.python_tree_traversing as ptt
+
 
 def get_accessible_size(accessible_fn, chrom, start=None, end=None):
     """
