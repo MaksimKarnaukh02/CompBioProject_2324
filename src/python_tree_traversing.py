@@ -69,8 +69,6 @@ def remove_doubles_LC(sorted_LC_list):
             species2 = get_species_name(sorted_LC_list[j][0].get_terminals()[0].name, dataframe)
 
             if node_to_check in children:
-                if species1 == "fuelleborni" and species2 == "fuelleborni":
-                    print("here")
                 sorted_LC_list.pop(j)  # Remove them from list
             else:
                 j += 1
