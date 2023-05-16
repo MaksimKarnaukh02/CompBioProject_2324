@@ -32,6 +32,8 @@ import os
 import subprocess
 import pandas as pd
 
+import python_tree_traversing as ptt
+
 def get_accessible_size(accessible_fn, chrom, start=None, end=None):
     """
     Returns accessible size in bp of a given genomic region from a tabix
@@ -90,6 +92,7 @@ def get_good_windows(accessible_fn, chrom, window_size=100000, reference_genome=
 def main():
 
     # get_good_windows(".bed.gz", "chr1")
+    ptt.tt()
 
     return 0
 
