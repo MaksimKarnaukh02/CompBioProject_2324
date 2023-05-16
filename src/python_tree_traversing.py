@@ -112,10 +112,6 @@ def select_individuals():
         # Get the species name of the fish
         species_name = get_species_name(OTUS[0].name, dataframe)
         species_name2 = get_species_name(OTUS[1].name, dataframe)
-        if (species_name == "fuelleborni"):
-            print(node)
-            for i in OTUS:
-                print(i.name)
         # Add the species name and the first two OTUs of each node to the dataframe
         row = {'species': species_name, 'species2': species_name2, 'id_individual_1': OTUS[0].name, 'id_individual_2': OTUS[1].name}
         individuals_dataframe = pd.concat([individuals_dataframe, pd.DataFrame(row, index=[0])], ignore_index=True)
