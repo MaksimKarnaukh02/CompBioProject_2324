@@ -25,6 +25,11 @@ First 9 columns are not individuals, but info about sites - chromosome name,  co
 changed to which etc. So it's basically just "Filter rows which have in field 'coordinate'
 a value which is between S and E, in at least one pair of (S,E) in a list. list of pairs (S,E)
 is a list of coordinates of good windows Starts and Ends".
+
+/scratch/antwerpen/208/vsc20811/2024-05_compbio_project/inversion_man_mt_2022-11-16.tsv
+Should be there. You need to take two inds from each monophyletic group.
+Where monophyletic means "there is a node all leaves under which belong to the same taxon".
+And there is no taxonomical info in a tree, only specimen IDs. This info is in metadata csv.
 """
 
 import sys
