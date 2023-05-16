@@ -62,11 +62,9 @@ def remove_doubles_LC(sorted_LC_list):
     while i < len(sorted_LC_list):  # Iterate through list in a high to low LC order.
         children = sorted_LC_list[i][0].get_nonterminals()  # Get a list of children of the node
         j = i + 1
-        species1 = get_species_name(sorted_LC_list[i][0].get_terminals()[0].name, dataframe)
         while j < len(sorted_LC_list):
             # For each entry check if nodes lower in the list are descendants of this node
             node_to_check = sorted_LC_list[j][0]
-            species2 = get_species_name(sorted_LC_list[j][0].get_terminals()[0].name, dataframe)
 
             if node_to_check in children:
                 sorted_LC_list.pop(j)  # Remove them from list
@@ -74,6 +72,9 @@ def remove_doubles_LC(sorted_LC_list):
                 j += 1
         i += 1
     return sorted_LC_list
+def isAnsestor(node, dataframe):
+    OTUS = node.get_terminals()  # Get a list of OTUs under a node.
+    return check_taxon(OTUS, dataframe)  # Check if they belong to the same taxon.
 
 dataframe = load_metadata()  # Load the metadata
 
@@ -89,17 +90,12 @@ def select_individuals():
 
     nonterminals = tree.get_nonterminals()
     for node in nonterminals:  # Iterate over all nodes in the tree
-        OTUS = node.get_terminals()  # Get a list of OTUs under a node.
-        if check_taxon(OTUS, dataframe):  # Check if they belong to the same taxon.
+        if isAnsestor(node, dataframe):
             # Write down node number and count of OTUS(leaves) under this node (= LC).
-            lc_list.append((node, len(OTUS)))
-    lc_list.sort(key=lambda x: x[1], reverse=True)  # Sort this list by LC, high to low.
-    print(len(lc_list))
-    remove_doubles_LC(lc_list)  # Remove double entries from the list of LCs.
-    print(len(lc_list))
-    remove_doubles_LC(lc_list)  # Remove double entries from the list of LCs.
-    print(len(lc_list))
+            lc_list.append((node, len(node.get_terminals())))
 
+    lc_list.sort(key=lambda x: x[1], reverse=True)  # Sort this list by LC, high to low.
+    remove_doubles_LC(lc_list)  # Remove double entries from the list of LCs.
     # Now we have a list of not nested nodes, each of them is a last common ancestor for a set of samples
     # which belong to the same taxon.
     # Then for each of these nodes you get a list of OTUs, pick two at random and it's done.
