@@ -14,3 +14,10 @@ https://en.wikipedia.org/wiki/Variant_Call_Format
 
 https://en.wikipedia.org/wiki/BED_(file_format)#:~:text=The%20BED%20(Browser%20Extensible%20Data,adopted%20by%20other%20sequencing%20projects.
 
+### code specific information:
+
+https://speciationgenomics.github.io/filtering_vcfs/
+
+https://bioinformatics.stackexchange.com/questions/20342/extract-lines-from-a-file-based-on-a-range-of-coordinates-listed-on-a-second-fil
+
+https://biopython.org/wiki/Phylo
