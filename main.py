@@ -96,9 +96,9 @@ def get_good_windows(accessible_fn, chrom, window_size=100000, reference_genome=
 
 
 def main():
+    individuals: pd.DataFrame = ptt.get_individuals()
 
-    # get_good_windows(".bed.gz", "chr1")
-    ptt.select_individuals()
+    # get_good_windows("malawi_cichlids_callset_v3_qc_subset_chr1_pass.bed.gz", "chr1")
 
     return 0
 

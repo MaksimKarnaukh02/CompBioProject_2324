@@ -1,3 +1,5 @@
+import os
+
 import pandas as pd
 from Bio import Phylo
 
@@ -21,11 +23,22 @@ def load_tree():
     return tree
 
 
+def load_tsv_in_dataframe(filename, seperator='\t'):
+    return pd.read_csv(filename, sep=seperator)
+
+
 def load_metadata():
     filename = "./Data/inversion_man_mt_2022-11-16.tsv"
     # load the metadata from inversion_man_mt_2022-11-16.tsv into a pandas dataframe
-    df = pd.read_csv(filename, sep='\t')
-    return df
+    return load_tsv_in_dataframe(filename)
+
+
+def load_individuals():
+    """
+    Loads the individuals from the metadata.
+    """
+    filepath = 'individuals.tsv'
+    return load_tsv_in_dataframe(filepath)
 
 
 def get_species_name(fish_id, dataframe):
@@ -35,17 +48,22 @@ def get_species_name(fish_id, dataframe):
     species_name = dataframe.loc[dataframe['id'] == fish_id, 'species'].iloc[0]
     return species_name
 
+
 def get_genus_name(fish_id, dataframe):
     """
     Receives an id of a fish and looks up the genus in the metadata dataframe.
     """
     genus_name = dataframe.loc[dataframe['id'] == fish_id, 'genus'].iloc[0]
     return genus_name
+
+
 def get_taxus_identifier(fish_id, dataframe):
     """
     Receives an id of a fish and returns the taxus.
     """
     return get_genus_name(fish_id, dataframe) + " / " + get_species_name(fish_id, dataframe)
+
+
 def check_taxon(OTUS, dataframe):
     """
     Check if a list of OTUs belong to the same taxon.
@@ -68,7 +86,7 @@ def remove_doubles_LC(sorted_LC_list):
     """
     Removes double entries from the list of LCs.
     """
-    i=0
+    i = 0
     while i < len(sorted_LC_list):  # Iterate through list in a high to low LC order.
         children = sorted_LC_list[i][0].get_nonterminals()  # Get a list of children of the node
         j = i + 1
@@ -82,11 +100,15 @@ def remove_doubles_LC(sorted_LC_list):
                 j += 1
         i += 1
     return sorted_LC_list
+
+
 def isAnsestor(node, dataframe):
     OTUS = node.get_terminals()  # Get a list of OTUs under a node.
     return check_taxon(OTUS, dataframe)  # Check if they belong to the same taxon.
 
+
 dataframe = load_metadata()  # Load the metadata
+
 
 def select_individuals():
     """
@@ -110,16 +132,16 @@ def select_individuals():
     # which belong to the same taxon.
     # Then for each of these nodes you get a list of OTUs, pick two at random and it's done.
     # We pick the first two OTUs of each node.
-    individuals_dataframe = pd.DataFrame(columns=['species','id_individual_1', 'id_individual_2'])
+    individuals_dataframe = pd.DataFrame(columns=['taxus', 'id_individual_1', 'id_individual_2'])
     for node in lc_list:
         OTUS = node[0].get_terminals()
         # Get the species name of the fish
         taxus_id = get_taxus_identifier(OTUS[0].name, dataframe)
         # Add the species name and the first two OTUs of each node to the dataframe
-        row = {'taxus': taxus_id,'id_individual_1': OTUS[0].name, 'id_individual_2': OTUS[1].name}
+        row = {'taxus': taxus_id, 'id_individual_1': OTUS[0].name, 'id_individual_2': OTUS[1].name}
         individuals_dataframe = pd.concat([individuals_dataframe, pd.DataFrame(row, index=[0])], ignore_index=True)
     toTSV(individuals_dataframe)
-    return
+    return individuals_dataframe
 
 
 def toTSV(dataframe):
@@ -127,6 +149,17 @@ def toTSV(dataframe):
     Saves the dataframe to a tsv file.
     """
     dataframe.to_csv('individuals.tsv', sep='\t', index=False)
+
+def get_individuals():
+    """
+    Returns a dataframe with the individuals.
+    If the individuals.tsv file exists, it loads it. otherwise it creates it.
+    """
+    individuals_filepath = 'individuals.tsv'
+    if os.path.isfile(individuals_filepath):
+        return load_tsv_in_dataframe(individuals_filepath)
+    else:
+        return select_individuals()
 
 def test():
     tree = Phylo.read(r"data/inversion_samples_noninverted_pwd_nj_tree_ancestral_rooted.newick.nwk", "newick")
@@ -151,3 +184,5 @@ def test():
     # you can compare nodes to find if they're the same node
     print([n for n in nodes if n == c1])
     print([n for n in nodes if n == c2])
+
+
