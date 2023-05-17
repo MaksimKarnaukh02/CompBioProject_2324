@@ -35,20 +35,30 @@ def get_species_name(fish_id, dataframe):
     species_name = dataframe.loc[dataframe['id'] == fish_id, 'species'].iloc[0]
     return species_name
 
-
+def get_genus_name(fish_id, dataframe):
+    """
+    Receives an id of a fish and looks up the genus in the metadata dataframe.
+    """
+    genus_name = dataframe.loc[dataframe['id'] == fish_id, 'genus'].iloc[0]
+    return genus_name
+def get_taxus_identifier(fish_id, dataframe):
+    """
+    Receives an id of a fish and returns the taxus.
+    """
+    return get_genus_name(fish_id, dataframe) + " / " + get_species_name(fish_id, dataframe)
 def check_taxon(OTUS, dataframe):
     """
     Check if a list of OTUs belong to the same taxon.
     """
     fish_name = OTUS[0].name
     # Get the species name of the first fish in the list
-    species1 = get_species_name(fish_name, dataframe)
+    taxus_identifier1 = get_taxus_identifier(fish_name, dataframe)
     # Loop over all the OTUs
     for OTU in OTUS[1:]:
         # Get the species name of the fish
-        species2 = get_species_name(OTU.name, dataframe)
+        taxus_identifier2 = get_taxus_identifier(OTU.name, dataframe)
         # If the species name of the fish is different from the first fish in the list
-        if species1 != species2:
+        if taxus_identifier1 != taxus_identifier2:
             # Break out of the loop
             return False
     return True
@@ -100,14 +110,13 @@ def select_individuals():
     # which belong to the same taxon.
     # Then for each of these nodes you get a list of OTUs, pick two at random and it's done.
     # We pick the first two OTUs of each node.
-    individuals_dataframe = pd.DataFrame(columns=['species', 'species2', 'id_individual_1', 'id_individual_2'])
+    individuals_dataframe = pd.DataFrame(columns=['species','id_individual_1', 'id_individual_2'])
     for node in lc_list:
         OTUS = node[0].get_terminals()
         # Get the species name of the fish
-        species_name = get_species_name(OTUS[0].name, dataframe)
-        species_name2 = get_species_name(OTUS[1].name, dataframe)
+        taxus_id = get_taxus_identifier(OTUS[0].name, dataframe)
         # Add the species name and the first two OTUs of each node to the dataframe
-        row = {'species': species_name, 'species2': species_name2, 'id_individual_1': OTUS[0].name, 'id_individual_2': OTUS[1].name}
+        row = {'taxus': taxus_id,'id_individual_1': OTUS[0].name, 'id_individual_2': OTUS[1].name}
         individuals_dataframe = pd.concat([individuals_dataframe, pd.DataFrame(row, index=[0])], ignore_index=True)
     toTSV(individuals_dataframe)
     return
