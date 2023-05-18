@@ -61,3 +61,20 @@ def get_good_windows(accessible_fn, chrom, window_size=100000, reference_genome=
                 end - start) > 0.9:  # # of accessible sites / window size
             good_windows.append((start, end))
     return good_windows
+
+
+def toBED(data: list, output_file):
+    """
+    Converts list of pairs of positions to BED file
+    """
+    with open(output_file, 'w') as f:
+        for entry in data:
+            pos1, pos2 = entry
+            chrom = "chr1"
+            bed_line = f"{chrom}\t{pos1}\t{pos2}\n"
+            f.write(bed_line)
+
+
+if __name__ == "__main__":
+    window_list = get_good_windows("./Data/malawi_cichlids_callset_v3_qc_subset_chr1_pass.bed.gz", "chr1")
+    toBED(window_list, "./chr1_windows.bed")

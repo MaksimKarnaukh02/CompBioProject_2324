@@ -191,3 +191,7 @@ def test():
     print([n for n in nodes if n == c2])
 
 
+if __name__ == "__main__":
+    individuals: pd.DataFrame = get_individuals()
+
+

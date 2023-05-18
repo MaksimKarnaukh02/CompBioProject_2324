@@ -35,13 +35,11 @@ import src.python_tree_traversing as ptt
 import src.windows as w
 
 
-
-
-
 def main():
     # individuals: pd.DataFrame = ptt.get_individuals()
 
-    get_good_windows("./Data/malawi_cichlids_callset_v3_qc_subset_chr1_pass.bed.gz", "chr1")
+    window_list = w.get_good_windows("./Data/malawi_cichlids_callset_v3_qc_subset_chr1_pass.bed.gz", "chr1")
+    print(window_list)
 
     return 0
 
