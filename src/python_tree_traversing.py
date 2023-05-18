@@ -1,7 +1,12 @@
 import os
+import subprocess
+from typing import List, Tuple
 
+import Bio.Phylo.Newick
 import pandas as pd
 from Bio import Phylo
+
+Clade = Bio.Phylo.Newick.Clade
 
 """
 check all nodes in a tree:
@@ -87,7 +92,7 @@ def check_taxon(OTUS, dataframe):
     return True
 
 
-def remove_doubles_LC(sorted_LC_list):
+def filter_doubles_LC(sorted_LC_list):
     """
     Removes double entries from the list of LCs.
     """
@@ -112,9 +117,54 @@ def isAnsestor(node, dataframe):
     return check_taxon(OTUS, dataframe)  # Check if they belong to the same taxon.
 
 
-dataframe = load_metadata()  # Load the metadata
+
+def get_existing_individuals():
+    """
+    Returns a list of individuals that exist in the VCF.
+    """
+    command = """zgrep -m 1 '^#CHROM' "../malawi_cichlids_v3_phase.biallelic_snps.pass.ancestral_as_sample.benthic.chr1.vcf.gz" | awk -F "FORMAT\t" '{print $2}' | awk -F "\t
+ancestral" '{print $1}'"""
+    existing_individuals_string = subprocess.check_output(command, shell=True, encoding="utf-8")
+    existing_individuals_list = set(existing_individuals_string.split("\t"))
+    return existing_individuals_list
 
 
+def filter_individuals_by_existence_in_VCF(individuals: List[Tuple[Clade, int]]):
+    print(len(individuals))
+    existing_individuals = get_existing_individuals()
+    print(len(existing_individuals))
+    indx = 0
+    while indx < len(individuals):
+        clade: Clade = individuals[indx][0]
+        if clade.name not in existing_individuals:
+            individuals.pop(indx)
+        else:
+            indx += 1
+    print(len(individuals))
+    return individuals
+
+def filter_LC(LC_list):
+    """
+    Filters the list of LCs.
+    """
+    LC_list.sort(key=lambda x: x[1], reverse=True)  # Sort this list by LC, high to low.
+
+    # Remove double entries from the list of LCs.
+    LC_list = filter_doubles_LC(LC_list)
+
+    return LC_list
+
+def findTwoIndividuals(OTUS, existing_individuals):
+    """
+    Finds two individuals from the same taxon.
+    """
+    individuals = []
+    for OTU in OTUS:
+        if OTU.name in existing_individuals:
+            individuals.append(OTU.name)
+            if len(individuals) == 2:
+                return individuals[0], individuals[1]
+    return None, None
 def select_individuals():
     """
     Selects individuals from the tree.
@@ -131,20 +181,23 @@ def select_individuals():
             # Write down node number and count of OTUS(leaves) under this node (= LC).
             lc_list.append((node, len(node.get_terminals())))
 
-    lc_list.sort(key=lambda x: x[1], reverse=True)  # Sort this list by LC, high to low.
-    remove_doubles_LC(lc_list)  # Remove double entries from the list of LCs.
+    lc_list = filter_LC(lc_list)  # Filter function for the LC list.
     # Now we have a list of not nested nodes, each of them is a last common ancestor for a set of samples
     # which belong to the same taxon.
     # Then for each of these nodes you get a list of OTUs, pick two at random and it's done.
     # We pick the first two OTUs of each node.
     individuals_dataframe = pd.DataFrame(columns=['taxus', 'id_individual_1', 'id_individual_2'])
+    existing_individuals_in_lake = get_existing_individuals()
     for node in lc_list:
         OTUS = node[0].get_terminals()
         # Get the species name of the fish
         taxus_id = get_taxus_identifier(OTUS[0].name, dataframe)
-        # Add the species name and the first two OTUs of each node to the dataframe
-        row = {'taxus': taxus_id, 'id_individual_1': OTUS[0].name, 'id_individual_2': OTUS[1].name}
-        individuals_dataframe = pd.concat([individuals_dataframe, pd.DataFrame(row, index=[0])], ignore_index=True)
+        id_individual_1, id_individual_2 = findTwoIndividuals(OTUS, existing_individuals_in_lake)
+        # If 2 fishes exist in the lake
+        if id_individual_1 and id_individual_2:
+            # Add the species name and the first two OTUs of each node to the dataframe
+            row = {'taxus': taxus_id, 'id_individual_1': id_individual_1, 'id_individual_2': id_individual_2}
+            individuals_dataframe = pd.concat([individuals_dataframe, pd.DataFrame(row, index=[0])], ignore_index=True)
     toTSV(individuals_dataframe)
     return individuals_dataframe
 
@@ -192,6 +245,7 @@ def test():
 
 
 if __name__ == "__main__":
-    individuals: pd.DataFrame = get_individuals()
-
+    individuals: pd.DataFrame = select_individuals()
+    # individuals = get_existing_individuals()
+    # print(individuals)
 
