@@ -19,7 +19,7 @@ do
     # Get the name of the fasta file
     fasta_file_name=$(basename "$fasta_file")
     # Get the name of the tree file
-    tree_file_name="${fasta_file_name%.*}.tree"
+    tree_file_name="${fasta_file_name%.*}.nwk"
     # Make the tree using the fasttree algorithm
     FastTree -gtr -nt  "$fasta_file" > "./trees/$tree_file_name"
 done
