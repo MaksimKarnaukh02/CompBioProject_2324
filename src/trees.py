@@ -2,7 +2,8 @@ import os
 import numpy as np
 from sklearn.manifold import MDS
 import matplotlib.pyplot as plt
-from ete3 import Tree
+
+from Bio import Phylo
 
 
 def collect_tree_files(tree_directory):
@@ -11,11 +12,11 @@ def collect_tree_files(tree_directory):
 
 
 def compute_distance(tree_file1, tree_file2):
-    # Load the trees from the tree files
-    tree1 = Tree(tree_file1)
-    tree2 = Tree(tree_file2)
-    # Calculate the Robinson-Foulds distance
-    rf_distance = tree1.robinson_foulds(tree2)[0]
+
+    tree1 = Phylo.read(tree_file1, 'newick')
+    tree2 = Phylo.read(tree_file2, 'newick')
+
+    rf_distance = tree1.compare(tree2, 'rf')
     return rf_distance
 
 
@@ -43,10 +44,12 @@ def plot_treespace(reduced_distances):
     plt.show()
 
 
+VSC_DATA = '/data/antwerpen/208/vsc20886'
+
 if __name__ == '__main__':
 
     # Step 1: Collect Tree Files
-    _tree_directory = '/path/to/tree/files'
+    _tree_directory = f'{VSC_DATA}/trees/'
     _tree_files = collect_tree_files(_tree_directory)
 
     # Step 2 & 3: Compute Topological Distances and store them
