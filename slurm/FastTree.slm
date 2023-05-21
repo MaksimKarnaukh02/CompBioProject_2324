@@ -1,0 +1,40 @@
+#!/bin/bash
+#SBATCH --ntasks=1 --cpus-per-task=20
+#SBATCH --time=2-23:59:59
+#SBATCH --mem-per-cpu=2048m
+#SBATCH --partition=broadwell,ivybridge,zen2
+
+# there are nodes with 245760 184320 and 114688 MB RAM 
+# memory is per CPU, sou you need to divide by CPU number
+# I use partitions:   
+# partition  MB RAM CPUS
+# ivybridge  245760 20   
+#      zen2  245760 64   
+# broadwell  114688 28
+# broadwell  245760 28
+# partition broadwell has two types of nodes and is rather busy
+# check status with with sinfo -lN
+# partitions have different CPU architectures, some higly optimized code
+# may be affected, but usually no problems
+# maximal running time is 3 days, then you need to ask admins for extension
+# (before the limit is hit)  
+
+# Just getting some info about node 
+# in the task's log
+#df -h | grep /dev/
+#free -h
+#hostname
+
+# here go commands to initialize your conda environment 
+#source /data/antwerpen/grp/asvardal/share/hscon5_setup.sh
+#conda activate hscon5
+#conda create -n myenv python=3.8
+# set PATH for binaries installed locally or by conda
+#export PATH="${PATH}:/data/antwerpen/grp/asvardal/miniconda3/envs/hscon5/bin:/user/antwerpen/208/vsc20811/bin"
+
+# load your modules if conda env misses something
+# use module avail to check what can be loaded
+module load BioTools
+
+# your command here
+source "/scratch/antwerpen/208/vsc20886/CompBioProject_2324/src/fasttree_windows.sh"
