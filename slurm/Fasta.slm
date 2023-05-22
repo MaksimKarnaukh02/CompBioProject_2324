@@ -40,4 +40,4 @@ module load BioTools
 module load BWA
 
 # your command here
-python3 "${VSC_SCRATCH}/CompBioProject_2324/src/fasta.py"
+python3 "${VSC_SCRATCH}/CompBioProject_2324/src/split_fasta.py"

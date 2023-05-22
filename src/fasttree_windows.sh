@@ -11,10 +11,10 @@ if [  -d "./trees" ]; then
 fi
 # Make the trees folder
 mkdir "./trees"
-
 ls -lah
+echo "Making trees using the fasttree algorithm"
 # Loop over all the fasta files in the windowed_fastas folder
-for fasta_file in ./windowed_fastas/*.fa;
+for fasta_file in ./windowed_fastas/*.fasta;
 do
     # Get the name of the fasta file
     fasta_file_name=$(basename "$fasta_file")
@@ -23,4 +23,5 @@ do
     # Make the tree using the fasttree algorithm
     FastTree -gtr -nt  "$fasta_file" > "./trees/$tree_file_name"
 done
+echo "    Done"
 
