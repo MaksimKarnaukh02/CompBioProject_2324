@@ -2,7 +2,6 @@ import shutil
 import subprocess
 import os
 
-
 # from pyfaidx import FastaVariant
 
 def clip_reference_genome(ref_genome_file: str, vcf_file: str, output_file: str):
@@ -22,13 +21,6 @@ def clip_reference_genome(ref_genome_file: str, vcf_file: str, output_file: str)
     subprocess.run(cmd)
     print("\tDone.")
 
-    # consensus = FastaVariant(ref_genome_file, vcf_file, het=True, hom=True)
-    # out = open("variants.fasta", "w")
-    # for chrom in consensus.keys:
-    #     for var in consensus[chrom].variants_sites:
-    #         record = consensus[chrom][var - 1:var]
-    #         print(record, file=out)
-    # out.close()
 
 
 def split_fasta_file(fasta_file, window_size, output_directory):
@@ -85,7 +77,7 @@ if __name__ == '__main__':
     # Define the input and output file paths
     # Reference genome FASTA file (Input)
     ref_genome_file = f"/scratch/antwerpen/208/vsc20811/2024-05_compbio_project/genome/GCA_900246225.3_fAstCal1.2_genomic_chromnames_mt.fa"
-    vcf_file = f'{VSC_DATA}/filtered.vcf.gz'  # VCF file (Input)
+    vcf_file = f'{VSC_DATA}/finaloutput.vcf.gz'  # VCF file (Input)
     output_file = f'{VSC_DATA}/clipped_reference.fa'  # Output file for the clipped reference genome (Output)
 
     # Clip the reference genome
