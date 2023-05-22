@@ -8,8 +8,8 @@
 # memory is per CPU, sou you need to divide by CPU number
 # I use partitions:   
 # partition  MB RAM CPUS
-# ivybridge  245760 20   
-#      zen2  245760 64   
+# ivybridge  245760 20
+#      zen2  245760 64
 # broadwell  114688 28
 # broadwell  245760 28
 # partition broadwell has two types of nodes and is rather busy
