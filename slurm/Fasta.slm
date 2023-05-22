@@ -38,6 +38,9 @@
 module load Python/3.8.3-intel-2020a
 module load BioTools
 module load BWA
-
+module load BioTools-Python
+#pip3 install art
+#pip3 install pysam
 # your command here
+#source "${VSC_SCRATCH}/CompBioProject_2324/src/vcf2fasta.sh"
 python3 "${VSC_SCRATCH}/CompBioProject_2324/src/split_fasta.py"
