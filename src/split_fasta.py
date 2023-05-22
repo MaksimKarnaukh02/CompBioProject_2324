@@ -1,3 +1,4 @@
+import shutil
 import subprocess
 import os
 
@@ -61,6 +62,7 @@ def split_fasta_file(fasta_file, window_size, output_directory):
     # os.makedirs(output_directory, exist_ok=True)
 
     length_first_sequence = 0
+
     for letter_seq in sequences[list(sequences.keys())[0]]:
         length_first_sequence += len(letter_seq)
 
@@ -93,8 +95,10 @@ if __name__ == '__main__':
     window_size = 100000  # Size of the window in base pairs
     output_directory = f'{VSC_DATA}/windowed_fastas'  # Output directory to store the windowed FASTA files (Output)
     # Create the output directory if it does not exist
-    if not os.path.exists(output_directory):
-        os.makedirs(output_directory)
+    if os.path.exists(output_directory):
+        # Remove the directory if it already exists
+        shutil.rmtree(output_directory)
+    os.makedirs(output_directory)
 
     # Split the FASTA file into smaller windows
     split_fasta_file(output_file, window_size, output_directory)
