@@ -18,7 +18,8 @@ awk -F'\t' 'NR>1 {print $2; print $3}' "$selected_individuals" > "$selected_indi
 echo "TSV file with selected individuals converted to TXT format"
 
 echo "filter VCF file further based on selected individuals"
-# Filter VCF further based on selected individualsbcftools view -S "$selected_individuals_txt" "$output_file" | gzip "$finaloutput_file"
+# Filter VCF further based on selected individuals
+bcftools view -S "$selected_individuals_txt" "$output_file" | bgzip > "$finaloutput_file"
 
 echo "VCF file filtered further based on selected individuals"
 echo "Final output VCF file compressed using bgzip"
