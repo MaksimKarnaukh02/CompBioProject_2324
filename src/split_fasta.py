@@ -20,6 +20,7 @@ def clip_reference_genome(ref_genome_file: str, vcf_file: str, output_file: str)
     print(" ".join(cmd))
     subprocess.run(cmd)
     print("\tDone.")
+
     # consensus = FastaVariant(ref_genome_file, vcf_file, het=True, hom=True)
     # out = open("variants.fasta", "w")
     # for chrom in consensus.keys:
@@ -40,48 +41,39 @@ def split_fasta_file(fasta_file, window_size, output_directory):
     """
     print(f"Splitting FASTA file into windows with windows size {window_size}...")
     # Split the large FASTA file into smaller windows
+
+    sequences = {}  # Dictionary to store sequences per header
     with open(fasta_file, 'r') as input_file:
-        sequence = ''
+
+        # Process each line in the file
         for line in input_file:
+            line = line.strip()
+
             if line.startswith('>'):
-                if sequence:
-                    write_fasta_window(sequence, window_size, output_directory)
-                    sequence = ''
-                write_header(line, output_directory)
+                # If it is a header line, store the header
+                current_header = line
+                sequences[current_header] = []
             else:
-                sequence += line.strip()
-        if sequence:
-            write_fasta_window(sequence, window_size, output_directory)
+                # If it is a sequence line, append the sequence to the corresponding header
+                sequences[current_header].append(line)
+
+    # Create the output directory if it doesn't exist
+    # os.makedirs(output_directory, exist_ok=True)
+
+    length_first_sequence = 0
+    for letter_seq in sequences[list(sequences.keys())[0]]:
+        length_first_sequence += len(letter_seq)
+
+    # Split the sequences into windows and write to separate FASTA files
+    for i in range(0, length_first_sequence, window_size):
+        windowed_sequences = {header: ''.join(sequence)[i:i + window_size] for header, sequence in sequences.items()}
+
+        output_filename = os.path.join(output_directory, f'window_{i}-{i + window_size}.fasta')
+        with open(output_filename, 'w') as output_file:
+            for header, sequence in windowed_sequences.items():
+                output_file.write(f'{header}\n{sequence}\n')
+
     print("\tDone.")
-
-def write_header(header, output_directory):
-    """
-    Write FASTA header to each window file.
-
-    Args:
-        header (str): Header line of the FASTA sequence.
-        output_directory (str): Path to the output directory (Output).
-    """
-    with open(output_directory + '/header.txt', 'w') as header_file:
-        header_file.write(header)
-
-
-def write_fasta_window(sequence, window_size, output_directory):
-    """
-    Write a window of FASTA sequence to a separate file.
-
-    Args:
-        sequence (str): FASTA sequence.
-        window_size (int): Size of the window in base pairs.
-        output_directory (str): Path to the output directory (Output).
-    """
-    # Write a window of FASTA sequence to a separate file
-    for i in range(0, len(sequence), window_size):
-        window = sequence[i:i + window_size]
-        window_file = output_directory + '/window_{}.fa'.format(i)
-        with open(window_file, 'w') as output_file:
-            output_file.write('>Window {}\n'.format(i))
-            output_file.write(window)
 
 
 VSC_DATA = '/data/antwerpen/208/vsc20886'
