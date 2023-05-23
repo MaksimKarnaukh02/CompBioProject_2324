@@ -35,15 +35,20 @@ def vcf_to_fasta(vcf_file, ref_fasta, output_fasta): #TODO test if actually work
         for sample in record.samples:
             sample_name = sample.sample
             mutated_seq = seq.toseq()
-
-            alleles = sample.allele_indices # e.g. 1/0 => [1, 0] for a heterozygous sample
-            for allele_index in alleles:
+            pprint(inspect.getmembers(sample.site))
+            print(f"sample_attributes: {sample}", flush=True)
+            print(f"sample alleles: {sample['GT']}", flush=True)
+            # alleles = sample.site.allele_indexes # e.g. 1/0 => [1, 0] for a heterozygous sample
+            alleles = sample['GT']
+            allele_list = alleles.split("|")
+            for allele_index in allele_list:
                 if allele_index == 0: # no variation (no change compared to reference genome), so no change back needed
                     pass
                 elif allele_index == "." or allele_index == "None" or allele_index is None or allele_index == "":
                     mutated_seq[pos - 1] = ""
                 else: # variation (change compared to reference genome), so change back to original genome allele
-                    alt_allele = record.ALT[allele_index - 1]
+                    print(f"alt_allele: {record.ALT[allele_index - 1]}", flush=True)
+                    alt_allele = record.ALT[int(allele_index) - 1]
                     mutated_seq[pos - 1] = str(alt_allele)
 
                 seq_record = SeqRecord(mutated_seq, id=f'{chrom}_{pos}_{sample_name}', description='')
