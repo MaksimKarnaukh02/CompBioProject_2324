@@ -23,6 +23,7 @@ Files:
     - `vcfpandas.py`: script (we received): Tools that help to load/parse information from a VCF (variant call format) file into pandas data frames and series. Tools to handle such data..
     - `windows.py`: script to get good windows from .bed file.
 - **Data**: contains part of the data we used for the project.
+- **slurm**: contains slurm scripts to run on the cluster.
 ---
 
 ### Acknowledgements:
