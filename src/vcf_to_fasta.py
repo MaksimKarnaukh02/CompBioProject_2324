@@ -41,8 +41,10 @@ def vcf_to_fasta(vcf_file, ref_fasta, output_fasta): #TODO test if actually work
 
     SeqIO.write(seq_records, output_fasta, 'fasta') # Save the SeqRecord objects to a FASTA file
 
-vcf_file = 'input.vcf'
-ref_fasta = 'reference.fasta'
-output_fasta = 'output.fasta'
+if __name__ == '__main__':
 
-vcf_to_fasta(vcf_file, ref_fasta, output_fasta)
+    vcf_file = 'input.vcf'
+    ref_fasta = 'reference.fasta'
+    output_fasta = 'output.fasta'
+
+    vcf_to_fasta(vcf_file, ref_fasta, output_fasta)
