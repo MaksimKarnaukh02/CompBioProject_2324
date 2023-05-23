@@ -15,16 +15,8 @@ Check if they belong to the same taxon.
 If yes - write down node number and count of OTUS(leaves) under this node (= LC).
 Sort this list by LC. Iterate through list in a high to low LC order. For each row check if nodes lower in the list are 
 descendants of this node, if they are - remove them from list.
-Once you finished - you have a list of not nested nodes, each of them is a last common ancestor for a set of samples  
-which belong to the same taxon. 
-Then for each of these nodes you get a list of OTUs, pick two at random and it's done.
-Just be careful to not to miss boundary cases 
-(e.g. node which has only two children and they're samples of different species).
 
-/scratch/antwerpen/208/vsc20811/2024-05_compbio_project/inversion_man_mt_2022-11-16.tsv
-Should be there. You need to take two inds from each monophyletic group.
-Where monophyletic means "there is a node all leaves under which belong to the same taxon".
-And there is no taxonomical info in a tree, only specimen IDs. This info is in metadata csv.
+info is in metadata csv.
 """
 
 

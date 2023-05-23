@@ -1,6 +1,36 @@
 # CompBioProject_2324
 
-## Cluster Information:
+## Project Description:
+
+This project is a part of the course Computational Biology at the University of Antwerp.
+
+Files:
+- `main.py`: ~~main file to run the project~~ (not used, since we worked step by step with different scripts.)
+- **libs**: 
+    files found online to help with the project.
+- **scripts**:
+    contains scripts to sync code with cluster.
+- **src**:
+    - `arcs.R`: not used.
+    - `fasttree_windows.sh`: script to generate trees from fasta files.
+    - `python_tree_traversing`: script to get individuals from NJ tree.
+    - `split_fasta.py`: script to split one fasta file into multiple smaller ones.
+    - `trees.py`: python script to do tree space analysis.
+    - `trees.R`: R script to do tree space analysis.
+    - `vcf2fasta.sh`: shell script to convert .vcf to .fasta. (not 100% reliable yet)
+    - `vcf_to_fasta.py`: python script to convert .vcf to .fasta. (not 100% reliable yet)
+    - `VCFFilter.sh`: script to filter vcf file based on bed file (and chosen individuals/species).
+    - `vcfpandas.py`: script (we received): Tools that help to load/parse information from a VCF (variant call format) file into pandas data frames and series. Tools to handle such data..
+    - `windows.py`: script to get good windows from .bed file.
+- **Data**: contains part of the data we used for the project.
+---
+
+### Acknowledgements:
+We would like to thank Ilia Artiushin for his huge amount of help with the project.
+
+---
+
+#### Cluster Information:
 
 https://vlaams-supercomputing-centrum-vscdocumentation.readthedocs-hosted.com/en/latest/index.html
 
@@ -8,13 +38,13 @@ https://calcua.uantwerpen.be/courses/hpc-intro/IntroductionHPC-20220315.pdf
 
 https://hpc.nmsu.edu/discovery/slurm/slurm-commands/
 
-## Project Information:
+#### Project Information:
 
 https://en.wikipedia.org/wiki/Variant_Call_Format
 
 https://en.wikipedia.org/wiki/BED_(file_format)#:~:text=The%20BED%20(Browser%20Extensible%20Data,adopted%20by%20other%20sequencing%20projects.
 
-### code specific information:
+#### code specific information:
 
 https://speciationgenomics.github.io/filtering_vcfs/
 
