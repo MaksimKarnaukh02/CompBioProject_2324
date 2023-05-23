@@ -46,6 +46,21 @@ def vcf_to_fasta(vcf_file, ref_fasta, output_fasta): #TODO test if actually work
 
 
             for allele_index in [ int(allele_index) for allele_index in allele_list]:
+                """
+                If you have different length of ALT and REF, 
+                    you need to insert gaps ('-') in your alignment. 
+                In your case it depends on what is in ALT. 
+                    If REF is 'ATG' and ALT is 'A' you should insert 'A--' 
+                    for 1|1, 'ATG' for 0|0 and 'NNN' or 'N--' for .|. , 
+                    the last is arbitrary somehow and will be threated 
+                    just the same downstream in analysis, 
+                    but 'NNN' is more clear I think. 
+                
+                Bad things happen if REF is 'A' and ALT is 'ATG', then you need to insert 'A--' in all other sequences, 
+                or you end up with unaligned sequences and the tree will be totally wrong. And that's why I recommended 
+                to take readymade code for this.
+                """
+
                 if allele_index == 0: # no variation (no change compared to reference genome), so no change back needed
                     pass
                 elif allele_index == "." or allele_index == "None" or allele_index is None or allele_index == "":
