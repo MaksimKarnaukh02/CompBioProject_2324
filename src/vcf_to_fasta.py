@@ -47,11 +47,14 @@ def vcf_to_fasta(vcf_file, ref_fasta, output_fasta): #TODO test if actually work
                 if allele_index == 0: # no variation (no change compared to reference genome), so no change back needed
                     pass
                 elif allele_index == "." or allele_index == "None" or allele_index is None or allele_index == "":
-                    mutated_seq[pos - 1] = ""
+                    pass
                 else: # variation (change compared to reference genome), so change back to original genome allele
-                    print(f"alt_allele: {record.ALT[allele_index - 1]}", flush=True)
-                    alt_allele = record.ALT[int(allele_index) - 1]
-                    mutated_seq[pos - 1] = str(alt_allele)
+                    if record.ALT[int(allele_index) - 1] == ".":
+                        mutated_seq[pos - 1] = ""
+                    else:
+                        print(f"alt_allele: {record.ALT[int(allele_index) - 1]}", flush=True)
+                        alt_allele = record.ALT[int(allele_index) - 1]
+                        mutated_seq[pos - 1] = str(alt_allele)
 
                 break  # break because we only look at the first number, so before the | or /
             seq_record = SeqRecord(mutated_seq, id=f'{chrom}_{pos}_{sample_name}', description='')
