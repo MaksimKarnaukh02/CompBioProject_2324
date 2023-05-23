@@ -77,6 +77,8 @@ def fasta_alignment_from_vcf(vcf_file, ref):
     print('done', flush=True)
     df = pd.DataFrame(sites_matrix)
     df.index = sites
+    output_file = vcf_file.replace('.vcf.gz', 'testout.fasta')
+    SeqIO.write(result, output_file, "fasta")
     return result, df
 
 def unitTest():
