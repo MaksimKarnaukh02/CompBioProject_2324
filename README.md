@@ -73,7 +73,7 @@ https://www.biostars.org/p/86321/
 
 https://www.biostars.org/p/69124/
 
-https://bioinformatics.stackexchange.com/questions/20342/extract-lines-from-a-file-based-on-a-range-of-coordinates-listed-on-a-second-fil
+http://dmnfarrell.github.io/bioinformatics/vcf-sites-fasta
 
 
 
