@@ -75,6 +75,8 @@ https://www.biostars.org/p/69124/
 
 http://dmnfarrell.github.io/bioinformatics/vcf-sites-fasta
 
+https://github.com/edgardomortiz/vcf2phylip/blob/master/vcf2phylip.py
+
 
 
 
