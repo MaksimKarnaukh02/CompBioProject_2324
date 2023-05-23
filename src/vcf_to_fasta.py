@@ -14,12 +14,13 @@ def vcf_to_fasta(vcf_file, ref_fasta, output_fasta): #TODO test if actually work
     print('Finished reading reference genome FASTA file')
     vcf_reader = vcf.Reader(open(vcf_file, 'rb')) # Open the VCF file
 
-    seq_records = [] # Create a list to store the resulting SeqRecord objects
-
+    seq_records = {} # Create a list to store the resulting SeqRecord objects
+    mutated_seqs = {}
     print('Processing VCF file')
+
     for record in vcf_reader: # Process each record in the VCF file
         # print(f"record: {record}")
-
+        print(dir(record))
         chrom = record.CHROM
         # print(f"chrom: {chrom}")
         pos = record.POS
@@ -29,20 +30,21 @@ def vcf_to_fasta(vcf_file, ref_fasta, output_fasta): #TODO test if actually work
         # print(f"ref_allele: {ref_allele}")
         ref_sequence = str(ref_records[chrom].seq) # Get the reference sequence for the current chromosome
         # print(f"ref_sequence: {ref_sequence}")
-        seq = Seq(ref_sequence)
-        seq = seq.tomutable()
-
-        seq[pos - 1] = ref_allele # set to reference allele by default
+        if chrom not in seq_records.keys():
+            seq_records[chrom] = []
+            seq_records[chrom] = [Seq(ref_sequence).tomutable() for i in range(len(vcf_reader.samples))]
 
         for sample in record.samples:
             sample_name = sample.sample
-            mutated_seq = copy.deepcopy(seq)
-            pprint(inspect.getmembers(sample.site))
-            print(f"sample_attributes: {sample}", flush=True)
-            print(f"sample alleles: {sample['GT']}", flush=True)
+            sample_index = record._sample_indexes[sample_name]
+            # pprint(inspect.getmembers(sample.site))
+            # print(f"sample_attributes: {sample}", flush=True)
+            # print(f"sample alleles: {sample['GT']}", flush=True)
             # alleles = sample.site.allele_indexes # e.g. 1/0 => [1, 0] for a heterozygous sample
             alleles = sample['GT']
             allele_list = alleles.split("|")
+
+
             for allele_index in [ int(allele_index) for allele_index in allele_list]:
                 if allele_index == 0: # no variation (no change compared to reference genome), so no change back needed
                     pass
@@ -50,18 +52,21 @@ def vcf_to_fasta(vcf_file, ref_fasta, output_fasta): #TODO test if actually work
                     pass
                 else: # variation (change compared to reference genome), so change back to original genome allele
                     if record.ALT[int(allele_index) - 1] == ".":
-                        mutated_seq[pos - 1] = ""
+                        seq_records[chrom][sample_index][pos - 1] = ""
                     else:
-                        print(f"alt_allele: {record.ALT[int(allele_index) - 1]}", flush=True)
                         alt_allele = record.ALT[int(allele_index) - 1]
-                        mutated_seq[pos - 1] = str(alt_allele)
+                        seq_records[chrom][sample_index][pos - 1] = str(alt_allele)
+
 
                 break  # break because we only look at the first number, so before the | or /
-            seq_record = SeqRecord(mutated_seq, id=f'{chrom}_{pos}_{sample_name}', description='')
-            seq_records.append(seq_record)
+    final_seq_records = []
+    for chrom, mutated_seqs in seq_records.items():
+        for idx, mutated_seg in enumerate(mutated_seqs):
+            id = f"{chrom}_{vcf_reader.samples[idx]}"
+            final_seq_records.append(SeqRecord(mutated_seg, id=id))
 
     print('Finished processing VCF file')
-    SeqIO.write(seq_records, output_fasta, 'fasta') # Save the SeqRecord objects to a FASTA file
+    SeqIO.write(final_seq_records, output_fasta, 'fasta') # Save the SeqRecord objects to a FASTA file
     print('Finished writing FASTA file')
 
 

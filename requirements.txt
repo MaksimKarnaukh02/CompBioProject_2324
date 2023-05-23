@@ -1,2 +1,4 @@
 pyvcf
-biopython==1.76
+biopython==1.81
+pyfaidx==0.7.2.1
+pandas==2.0.1

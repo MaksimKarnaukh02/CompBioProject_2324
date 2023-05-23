@@ -1,7 +1,11 @@
 import subprocess
+from pprint import pprint
+
 # import sys, os
 import pandas as pd
-# from Bio import SeqIO
+from Bio import SeqIO
+from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
 from pyfaidx import Fasta
 from pyfaidx import FastaVariant
 import vcf
@@ -17,7 +21,7 @@ def fasta_alignment_from_vcf(vcf_file, ref):
     cmd = 'tabix -p vcf -f {i}'.format(i=vcf_file)
     tmp = subprocess.check_output(cmd, shell=True)
     # get samples from vcf
-    vcf_reader = vcf.Reader(open(vcf_file, 'rb'))
+    vcf_reader = vcf.Reader(filename=vcf_file)
     samples = vcf_reader.samples
     print('%s samples' % len(samples), flush=True)
     result = []
@@ -35,7 +39,7 @@ def fasta_alignment_from_vcf(vcf_file, ref):
                                sample=sample, het=True, hom=True)
         print('got variant', flush=True)
         print(variant, flush=True)
-        print(variant[chrom], flush=True)
+        print(dir(variant[chrom]), flush=True)
         print(variant[chrom].variant_sites, flush=True)
         pos = list(variant[chrom].variant_sites)
         print('got %s pos' % len(pos), flush=True)
@@ -75,11 +79,23 @@ def fasta_alignment_from_vcf(vcf_file, ref):
     df.index = sites
     return result, df
 
+def unitTest():
+    test_vcf_file = "./testData/test.vcf.gz"
+    test_ref_fasta = "./testData/test_ref.fa"
 
+    # vcf_file = "/data/antwerpen/208/vsc20886/finaloutput.vcf.gz"
+    # ref_fasta = "/scratch/antwerpen/208/vsc20811/2024-05_compbio_project/genome/GCA_900246225.3_fAstCal1.2_genomic_chromnames_mt.fa"
+
+    test_output_fasta = './testOutput/output.fasta'
+
+    result, df = fasta_alignment_from_vcf(test_vcf_file, test_ref_fasta)
+    # vcf_to_fasta(test_vcf_file, test_ref_fasta, test_output_fasta)
+    pprint(result)
 if __name__ == "__main__":
-    vcf_file = "/data/antwerpen/208/vsc20886/finaloutput.vcf.gz"
-    ref = "/scratch/antwerpen/208/vsc20811/2024-05_compbio_project/genome/GCA_900246225.3_fAstCal1.2_genomic_chromnames_mt.fa"
-    print("Running fasta_alignment_from_vcf", flush=True)
-    result, df = fasta_alignment_from_vcf(vcf_file, ref)
-    print(result)
-    print(df)
+    unitTest()
+    # vcf_file = "/data/antwerpen/208/vsc20886/finaloutput.vcf.gz"
+    # ref = "/scratch/antwerpen/208/vsc20811/2024-05_compbio_project/genome/GCA_900246225.3_fAstCal1.2_genomic_chromnames_mt.fa"
+    # print("Running fasta_alignment_from_vcf", flush=True)
+    # result, df = fasta_alignment_from_vcf(vcf_file, ref)
+    # print(result)
+    # print(df)

@@ -15,7 +15,7 @@
 ##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
 ##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read Depth">
 ##FORMAT=<ID=HQ,Number=2,Type=Integer,Description="Haplotype Quality">
-#CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  Sample1 Sample2 Sample3
-chr1    4       .       G       A       .       PASS    .       GT      0|1     1|1     0|0
-chr1    8       .       G       T       .       PASS    .       GT      0|0     1|1     0|1
-chr1    13      .       T       A       .       PASS    .       GT      0|1     0|1     1|1
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample1	Sample2	Sample3
+chr1	4	.	G	A	.	PASS	.	GT	0|1	1|1	0|0
+chr1	8	.	G	T	.	PASS	.	GT	0|0	1|1	0|1
+chr1	13	.	A	T	.	PASS	.	GT	0|1	0|1	1|1
