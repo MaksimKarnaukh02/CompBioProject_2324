@@ -1,17 +1,14 @@
 """
-Maybe it's better to subset windows, dropping those, which have less positions marked as "good"
-than some threshold (say 90%). Otherwise you'll get some windows with only a few sites
-available to analysis and it can affect topologies badly. I have a function in python
-which computes the count of accessible positions in python (get_accessible_size in the attached file),
-but you can do it any other way as well.
+subset windows, dropping those, which have less positions marked as "good"
+than some threshold (say 90%). Otherwise we get some windows with only a few sites
+available to analysis and it can affect topologies badly. (get_accessible_size in the attached file)
 
-you should split your chromosome in windows.
-For this you can generate a list of non-overlapping windows i.e. pairs of coordinates (start,end),
+split chromosome in windows.
+For this we generate a list of non-overlapping windows i.e. pairs of coordinates (start,end),
 then check with this function how many positions are good within this window.
 It will be a number in range from 0 to end-start.
-Then you can get percentage of good sites by dividing it by window length.
+Then get percentage of good sites by dividing it by window length.
 The function calls tabix from SAMtools, so load module BioTools, it contains SAMtools and other useful things as well.
-Chromosome parameter is just the chromosome name (look at the VCF file name its "chr[something]")
 
 The idea was to split chromosome in 100k windows, i.e. the first window: 1 to 100000 ,
 the second 100001 to 200000, the third 200001 to 300000,
