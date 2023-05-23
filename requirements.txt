@@ -1,0 +1,2 @@
+pyvcf
+biopython==1.76
