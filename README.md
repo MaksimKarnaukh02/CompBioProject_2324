@@ -63,6 +63,8 @@ https://speciationgenomics.github.io/filtering_vcfs/
 
 https://github.com/jamescasbon/PyVCF/
 
+https://biopython.org/docs/1.75/api/Bio.Seq.html
+
 #### code specific information:
 
 https://bioinformatics.stackexchange.com/questions/20342/extract-lines-from-a-file-based-on-a-range-of-coordinates-listed-on-a-second-fil
