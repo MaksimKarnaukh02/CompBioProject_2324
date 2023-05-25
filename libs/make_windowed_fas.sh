@@ -1,8 +1,8 @@
 #!/bin/bash
-ref="../genome/GCA_900246225.3_fAstCal1.2_genomic_chromnames_mt.fa"
-vcf="../malawi_cichlids_v3_phase.biallelic_snps.pass.ancestral_as_sample.benthic.chr1.vcf.gz"
-cut_ref="../genome_chr1.fa"
-# head -c 100M  ${ref} | sed -n '/>chr1/,/chr2/p' | head -n-1 > ${cut_ref}
+ref="/scratch/antwerpen/208/vsc20811/2024-05_compbio_project/genome/GCA_900246225.3_fAstCal1.2_genomic_chromnames_mt.fa"
+vcf="/data/antwerpen/208/vsc20886/finaloutput.vcf.gz"
+cut_ref="./Data/genome_chr1.fa"
+head -c 100M  ${ref} | sed -n '/>chr1/,/chr2/p' | head -n-1 > ${cut_ref}
 
 temp_dir=`mktemp -d`
 if [ -z "$temp_dir" ]
@@ -11,11 +11,11 @@ then
   exit 1;
 fi
 
-if [ -z "$1" ]
-then
-  echo "Need an argument <window_number>"
-  exit 1;
-fi
+#if [ -z "$1" ]
+#then
+#  echo "Need an argument <window_number>"
+#  exit 1;
+#fi
 
 
 # !!! doesn't affect rehydration part (TODO: fix)

@@ -1,8 +1,9 @@
 #!/bin/bash
-#SBATCH --ntasks=1 --cpus-per-task=64
+#SBATCH --ntasks=1 --cpus-per-task=20
 #SBATCH --time=2-23:59:59
-#SBATCH --mem-per-cpu=3840m
+#SBATCH --mem-per-cpu=2048m
 #SBATCH --partition=broadwell,ivybridge,zen2
+#SBATCH --array=0-411
 
 # there are nodes with 245760 184320 and 114688 MB RAM 
 # memory is per CPU, sou you need to divide by CPU number
@@ -26,15 +27,18 @@
 #hostname
 
 # here go commands to initialize your conda environment 
-#source /data/antwerpen/grp/asvardal/share/hscon5_setup.sh
-#conda activate hscon5
+source /data/antwerpen/grp/asvardal/share/hscon5_setup.sh
+conda activate hscon5
 #conda create -n myenv python=3.8
 # set PATH for binaries installed locally or by conda
-#export PATH="${PATH}:/data/antwerpen/grp/asvardal/miniconda3/envs/hscon5/bin:/user/antwerpen/208/vsc20811/bin"
+export PATH="${PATH}:/data/antwerpen/grp/asvardal/miniconda3/envs/hscon5/bin:/user/antwerpen/208/vsc20811/bin"
 
 # load your modules if conda env misses something
 # use module avail to check what can be loaded
-module load BioTools
-
+#module load BioTools
+#conda install -c bioconda fasttree
+#sleep 5s
+#module list
+#/scratch/antwerpen/208/vsc20886/CompBioProject_2324/libs/FastTree --help
 # your command here
-source "/scratch/antwerpen/208/vsc20886/CompBioProject_2324/src/fasttree_windows.sh"
+python3 "/scratch/antwerpen/208/vsc20886/CompBioProject_2324/src/renderTree.py" ${SLURM_ARRAY_TASK_ID}

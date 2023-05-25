@@ -7,7 +7,9 @@ from Bio import Phylo
 
 
 def collect_tree_files(tree_directory):
-    treeFiles = [file for file in os.listdir(tree_directory) if file.endswith('.tree')]
+    ls = os.listdir(tree_directory)
+
+    treeFiles = [f"{tree_directory}{file}" for file in ls if file.endswith('.nwk')]
     return treeFiles
 
 
@@ -44,12 +46,11 @@ def plot_treespace(reduced_distances):
     plt.show()
 
 
-VSC_DATA = '/data/antwerpen/208/vsc20886'
 
 if __name__ == '__main__':
 
     # Step 1: Collect Tree Files
-    _tree_directory = f'{VSC_DATA}/trees/'
+    _tree_directory = f'./Data/trees/'
     _tree_files = collect_tree_files(_tree_directory)
 
     # Step 2 & 3: Compute Topological Distances and store them
