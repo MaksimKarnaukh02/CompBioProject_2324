@@ -7,7 +7,7 @@ This project is a part of the course Computational Biology at the University of 
 Files:
 - `main.py`: ~~main file to run the project~~ (not used, since we worked step by step with different scripts.)
 - **libs**: 
-    files found online to help with the project.
+    mostly files found online to help with the project.
 - **scripts**:
     contains scripts to sync code with cluster.
 - **src**:
