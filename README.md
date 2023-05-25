@@ -69,6 +69,8 @@ http://www.iqtree.org/doc/
 
 https://usegalaxy.eu/?tool_id=iqtree
 
+https://github.com/smirarab/ASTRAL/blob/master/astral-tutorial.md#installation
+
 #### code specific information:
 
 https://bioinformatics.stackexchange.com/questions/20342/extract-lines-from-a-file-based-on-a-range-of-coordinates-listed-on-a-second-fil
