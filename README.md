@@ -7,7 +7,7 @@ This project is a part of the course Computational Biology at the University of 
 Files:
 - `main.py`: ~~main file to run the project~~ (not used, since we worked step by step with different scripts.)
 - **libs**: 
-    files found online to help with the project.
+    mostly files found online to help with the project.
 - **scripts**:
     contains scripts to sync code with cluster.
 - **src**:
@@ -18,9 +18,9 @@ Files:
     - `trees.py`: python script to do tree space analysis.
     - `trees.R`: R script to do tree space analysis.
     - `vcf2fasta.sh`: shell script to convert .vcf to .fasta. (not 100% reliable)
-    - `vcf_to_fasta.py`: python script to convert .vcf to .fasta. (80% reliable)
+    - `vcf_to_fasta.py`: own python script to convert .vcf to .fasta. (incomplete) Eventually used the one in libs/
     - `VCFFilter.sh`: script to filter vcf file based on bed file (and chosen individuals/species).
-    - `vcfpandas.py`: script (we received): Tools that help to load/parse information from a VCF (variant call format) file into pandas data frames and series. Tools to handle such data..
+    - `vcfpandas.py`: script (we received): Tools that help to load/parse information from a VCF (variant call format) file into pandas data frames and series. Tools to handle such data.
     - `windows.py`: script to get good windows from .bed file.
 - **Data**: contains part of the data we used for the project.
 - **slurm**: contains slurm scripts to run on the cluster.
@@ -62,6 +62,14 @@ https://ms609.github.io/TreeDist/articles/treespace.html
 https://speciationgenomics.github.io/filtering_vcfs/
 
 https://github.com/jamescasbon/PyVCF/
+
+https://biopython.org/docs/1.75/api/Bio.Seq.html
+
+http://www.iqtree.org/doc/
+
+https://usegalaxy.eu/?tool_id=iqtree
+
+https://github.com/smirarab/ASTRAL/blob/master/astral-tutorial.md#installation
 
 #### code specific information:
 
