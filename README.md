@@ -14,15 +14,17 @@ Files:
     - `arcs.R`: not used.
     - `fasttree_windows.sh`: script to generate trees from fasta files.
     - `python_tree_traversing`: script to get individuals from NJ tree.
+    - `renderFinalTree.py`: script to render the final (Astral) tree
+    - `renderTree.py`: general script for rendering tree (.nwk files)
     - `split_fasta.py`: script to split one fasta file into multiple smaller ones.
-    - `trees.py`: python script to do tree space analysis.
+    - `trees.py`: python script to do tree space analysis (not used).
     - `trees.R`: R script to do tree space analysis.
     - `vcf2fasta.sh`: shell script to convert .vcf to .fasta. (not 100% reliable)
     - `vcf_to_fasta.py`: own python script to convert .vcf to .fasta. (incomplete) Eventually used the one in libs/
     - `VCFFilter.sh`: script to filter vcf file based on bed file (and chosen individuals/species).
     - `vcfpandas.py`: script (we received): Tools that help to load/parse information from a VCF (variant call format) file into pandas data frames and series. Tools to handle such data.
     - `windows.py`: script to get good windows from .bed file.
-- **Data**: contains part of the data we used for the project.
+- **Data**: contains part of the data we used for the project (also output data).
 - **slurm**: contains slurm scripts to run on the cluster.
 - **testData**: contains test files for vcf to fasta generation.
 - **testOutput**: contains the test output for vcf to fasta generation (test data).
