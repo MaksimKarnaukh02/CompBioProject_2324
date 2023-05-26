@@ -13,6 +13,7 @@ Files:
 - **src**:
     - `arcs.R`: not used.
     - `fasttree_windows.sh`: script to generate trees from fasta files.
+    - `final_tree_gen_astral.sh`: script to generate the final astral tree.
     - `python_tree_traversing`: script to get individuals from NJ tree.
     - `renderFinalTree.py`: script to render the final (Astral) tree
     - `renderTree.py`: general script for rendering tree (.nwk files)
