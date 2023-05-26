@@ -9,7 +9,7 @@ Topic: phylogeny of cichlids
 Files:
 - `main.py`: ~~main file to run the project~~ (not used, since we worked step by step with different scripts.)
 - **libs**: 
-    mostly files found online to help with the project.
+    mostly files found online or made to help with the project.
 - **scripts**:
     contains scripts to sync code with cluster.
 - **src**:
