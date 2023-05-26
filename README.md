@@ -87,6 +87,8 @@ http://dmnfarrell.github.io/bioinformatics/vcf-sites-fasta
 
 https://github.com/edgardomortiz/vcf2phylip/blob/master/vcf2phylip.py
 
+https://groups.google.com/g/etetoolkit/c/6Ceb4Mlmj5w?pli=1
+
 
 
 
