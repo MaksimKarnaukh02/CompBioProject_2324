@@ -4,6 +4,8 @@
 
 This project is a part of the course Computational Biology at the University of Antwerp.
 
+Topic: phylogeny of cichlids
+
 Files:
 - `main.py`: ~~main file to run the project~~ (not used, since we worked step by step with different scripts.)
 - **libs**: 
