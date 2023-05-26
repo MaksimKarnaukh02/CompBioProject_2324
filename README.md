@@ -71,8 +71,6 @@ https://usegalaxy.eu/?tool_id=iqtree
 
 https://github.com/smirarab/ASTRAL/blob/master/astral-tutorial.md#installation
 
-https://groups.google.com/g/etetoolkit/c/6Ceb4Mlmj5w?pli=1
-
 #### code specific information:
 
 https://bioinformatics.stackexchange.com/questions/20342/extract-lines-from-a-file-based-on-a-range-of-coordinates-listed-on-a-second-fil
@@ -86,6 +84,8 @@ https://www.biostars.org/p/69124/
 http://dmnfarrell.github.io/bioinformatics/vcf-sites-fasta
 
 https://github.com/edgardomortiz/vcf2phylip/blob/master/vcf2phylip.py
+
+https://groups.google.com/g/etetoolkit/c/6Ceb4Mlmj5w?pli=1
 
 
 
