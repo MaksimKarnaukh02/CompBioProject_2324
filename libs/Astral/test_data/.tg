@@ -1,0 +1,100 @@
+
+================== ASTRAL ===================== 
+
+This is ASTRAL version 5.11.0
+Gene trees are treated as unrooted
+Timer starts here
+424 trees read from 1KP-genetrees.tre
+TIME TOOK FROM LAST NOTICE: 0.38940954
+All output trees will be *arbitrarily* rooted at Aquilegia_formosa
+There are 6threads used to run.
+TIME TOOK FROM LAST NOTICE: 0.002955842
+
+======== Running the main analysis
+Number of taxa: 103 (103 species)
+Taxa: [Aquilegia_formosa, Eschscholzia_californica, Tanacetum_parthenium, Inula_helenium, Diospyros_malabarica, Ipomoea_purpurea, Allamanda_cathartica, Catharanthus_roseus, Rosmarinus_officinalis, Carica_papaya, Hibiscus_cannabinus, Arabidopsis_thaliana, Kochia_scoparia, Amborella_trichopoda, Cycas_micholitzii, Pinus_taeda, Cedrus_libani, Prumnopitys_andina, Taxus_baccata, Cunninghamia_lanceolata, Juniperus_scopulorum, Sciadopitys_verticillata, Gnetum_montanum, Ginkgo_biloba, Selaginella_moellendorffii_genome, Pseudolycopodiella_caroliniana, Dendrolycopodium_obscurum, Huperzia_squarrosa, Metzgeria_crassipilis, Bazzania_trilobata, Marchantia_polymorpha, Riccia_sp, Chlorokybus_atmophyticus, Chaetosphaeridium_globosum, Nephroselmis_pyriformis, Spirotaenia_minuta, Klebsormidium_subtile, Mesostigma_viride, Entransia_fimbriata, Coleochaete_irregularis, Coleochaete_scutata, Mougeotia_sp, Cylindrocystis_cushleckae, Mesotaenium_endlicherianum, Cylindrocystis_brebissonii, Monomastix_opisthostigma, Cosmarium_ochthodes, Netrium_digitus, Roya_obtusa, Polytrichum_commune, Rosulabryum_cf_capillare, Bryum_argenteum, Thuidium_delicatulum, Leucodon_brachypus, Rhynchostegium_serrulatum, Anomodon_attenuatus, Hedwigia_ciliata, Sphagnum_lescurii, Pteridium_aquilinum, Equisetum_diffusum, Psilotum_nudum, Nuphar_advena, Persea_americana, Liriodendron_tulipifera, Houttuynia_cordata, Saruma_henryi, Acorus_americanus, Smilax_bona, Yucca_filamentosa, Sorghum_bicolor, Zea_mays, Oryza_sativa, Brachypodium_distachyon, Dioscorea_villosa, Sabal_bermudana, Sarcandra_glabra, Uronema_sp, Colchicum_autumnale, Alsophila_spinulosa, Selaginella_moellendorffii_1kp, Sphaerocarpos_texanus, Marchantia_emarginata, Nothoceros_aenigmaticus, Ceratodon_purpureus, Ephedra_sinica, Podophyllum_peltatum, Vitis_vinifera, Boehmeria_nivea, Larrea_tridentata, Kadsura_heteroclita, Medicago_truncatula, Spirogyra_sp, Nothoceros_vincentianus, Ophioglossum_petiolatum, Angiopteris_evecta, Physcomitrella_patens, Zamia_vazquezii, Pyramimonas_parkeae, Penium_margaritaceum, Welwitschia_mirabilis, Chara_vulgaris, Populus_trichocarpa, Cycas_rumphii]
+Taxon occupancy: {Pseudolycopodiella_caroliniana=282, Kadsura_heteroclita=234, Entransia_fimbriata=294, Roya_obtusa=233, Eschscholzia_californica=394, Uronema_sp=93, Mesostigma_viride=154, Diospyros_malabarica=371, Polytrichum_commune=312, Sabal_bermudana=257, Saruma_henryi=366, Anomodon_attenuatus=295, Penium_margaritaceum=106, Pteridium_aquilinum=269, Zea_mays=304, Marchantia_emarginata=196, Medicago_truncatula=249, Nuphar_advena=387, Kochia_scoparia=345, Selaginella_moellendorffii_genome=333, Spirotaenia_minuta=150, Catharanthus_roseus=391, Boehmeria_nivea=342, Ephedra_sinica=187, Liriodendron_tulipifera=354, Bazzania_trilobata=227, Inula_helenium=282, Dioscorea_villosa=335, Allamanda_cathartica=325, Chaetosphaeridium_globosum=218, Populus_trichocarpa=237, Ginkgo_biloba=295, Acorus_americanus=341, Monomastix_opisthostigma=174, Podophyllum_peltatum=363, Vitis_vinifera=373, Nothoceros_aenigmaticus=244, Chara_vulgaris=138, Sarcandra_glabra=312, Sphaerocarpos_texanus=291, Dendrolycopodium_obscurum=261, Colchicum_autumnale=169, Cosmarium_ochthodes=140, Riccia_sp=316, Ophioglossum_petiolatum=264, Metzgeria_crassipilis=238, Ceratodon_purpureus=288, Ipomoea_purpurea=355, Rosmarinus_officinalis=285, Zamia_vazquezii=174, Pyramimonas_parkeae=181, Nothoceros_vincentianus=170, Netrium_digitus=204, Houttuynia_cordata=221, Coleochaete_scutata=292, Leucodon_brachypus=285, Persea_americana=330, Yucca_filamentosa=273, Welwitschia_mirabilis=79, Hibiscus_cannabinus=322, Sphagnum_lescurii=309, Amborella_trichopoda=399, Cunninghamia_lanceolata=325, Klebsormidium_subtile=252, Physcomitrella_patens=279, Rhynchostegium_serrulatum=335, Larrea_tridentata=276, Spirogyra_sp=193, Mesotaenium_endlicherianum=264, Selaginella_moellendorffii_1kp=199, Pinus_taeda=382, Mougeotia_sp=249, Chlorokybus_atmophyticus=236, Cylindrocystis_brebissonii=298, Sorghum_bicolor=388, Huperzia_squarrosa=280, Oryza_sativa=375, Juniperus_scopulorum=281, Cylindrocystis_cushleckae=324, Sciadopitys_verticillata=348, Marchantia_polymorpha=318, Prumnopitys_andina=379, Hedwigia_ciliata=311, Tanacetum_parthenium=334, Rosulabryum_cf_capillare=287, Coleochaete_irregularis=275, Cycas_micholitzii=295, Angiopteris_evecta=250, Taxus_baccata=331, Cycas_rumphii=71, Nephroselmis_pyriformis=187, Aquilegia_formosa=242, Carica_papaya=366, Cedrus_libani=274, Bryum_argenteum=259, Thuidium_delicatulum=313, Brachypodium_distachyon=375, Smilax_bona=247, Alsophila_spinulosa=236, Psilotum_nudum=244, Arabidopsis_thaliana=424, Gnetum_montanum=293, Equisetum_diffusum=309}
+Number of gene trees: 424
+424 trees have missing taxa
+Calculating quartet distance matrix (for completion of X)
+TIME TOOK FROM LAST NOTICE SimilarityMatrix 145-148: 0.074934486
+TIME TOOK FROM LAST NOTICE SimilarityMatrix 161-164: 0.323083808
+Species tree distances calculated ...
+Will attempt to complete bipartitions from X before adding using a distance matrix.
+Building set of clusters (X) from gene trees 
+TIME TOOK FROM LAST NOTICE WQDataCollection 558-561: 0.61403457
+TIME TOOK FROM LAST NOTICE WQDataCollection 588-591: 0.001669917
+TIME TOOK FROM LAST NOTICE WQDataCollection 701-704: 0.255973949
+------------------------------
+gradient0: 1089
+TIME TOOK FROM LAST NOTICE WQDataCollection 728-731: 1.36593933
+Number of Clusters after addition by distance: 11043
+TIME TOOK FROM LAST NOTICE Utils 219-222: 0.034471438
+TIME TOOK FROM LAST NOTICE Utils 240-243: 0.090538998
+TIME TOOK FROM LAST NOTICE Utils 269-272: 2.079400179
+polytomy size limit : 8
+discarded polytomies: Adding to X using resolutions of greedy consensus ...
+Limit for sigma of degrees:2625
+ [3, 3, 4, 4, 4, 4, 5, 5, 5, 7, 8]
+Threshold 0.0:
+Threshold 0.01:
+Threshold 0.02:
+Threshold 0.05:
+Threshold 0.1:
+Threshold 0.2:
+polytomy of size 7; rounds with additions with at least 5 support: 0; clusters: 11043
+polytomy of size 3; rounds with additions with at least 5 support: 0; clusters: 11043
+polytomy of size 4; rounds with additions with at least 5 support: 0; clusters: 11043
+Threshold 0.3333333333333333:
+polytomy of size 8; rounds with additions with at least 5 support: 0; clusters: 11043
+polytomy of size 5; rounds with additions with at least 5 support: 0; clusters: 11043
+polytomy of size 3; rounds with additions with at least 5 support: 0; clusters: 11043
+polytomy of size 4; rounds with additions with at least 5 support: 0; clusters: 11043
+polytomy of size 4; rounds with additions with at least 5 support: 0; clusters: 11043
+polytomy of size 5; rounds with additions with at least 5 support: 0; clusters: 11043
+polytomy of size 4; rounds with additions with at least 5 support: 0; clusters: 11043
+polytomy of size 5; rounds with additions with at least 5 support: 0; clusters: 11043
+max k is :0
+TIME TOOK FROM LAST NOTICE WQDataCollection 760-763: 0.752780649
+TIME TOOK FROM LAST NOTICE: 2.0837E-5
+partitions formed in 5.58 secs
+Dynamic Programming starting after 5.58 secs
+Using tree-based weight calculation.
+Using polytree-based weight calculation.
+Fail to load native library; use Java default computing method.
+Polytree max score: 378936182
+Polytree building time: 0.16 seconds.
+Number of quartet trees in the gene trees: 378936182
+global work group size is : 8192
+Exception in thread "main" org.jocl.CLException: CL_BUILD_PROGRAM_FAILURE
+Build log for device 0:
+<program source>:18:9: warning: implicit declaration of function 'asm' is invalid in C99
+        asm("popc.b64 %0, %1;" : "=r"(n) : "l" (i));
+        ^
+<program source>:18:32: error: expected ')'
+        asm("popc.b64 %0, %1;" : "=r"(n) : "l" (i));
+                               ^
+<program source>:18:12: note: to match this '('
+        asm("popc.b64 %0, %1;" : "=r"(n) : "l" (i));
+           ^
+<program source>:21:52: error: parameter may not be qualified with an address space
+inline int bitIntersectionSize(__global const long input1[2], __global const long input2[2]) {
+                                                   ^
+<program source>:21:83: error: parameter may not be qualified with an address space
+inline int bitIntersectionSize(__global const long input1[2], __global const long input2[2]) {
+                                                                                  ^
+<program source>:38:25: warning: unused variable 'trip'
+        struct cl_Tripartition trip;
+                        ^
+<program source>:51:7: warning: unused variable 'sx'
+        long sx [3];
+      ^
+
+
+	at org.jocl.CL.clBuildProgram(CL.java:11256)
+	at phylonet.coalescent.TurnTaskToScores$GPUCall.initCL(TurnTaskToScores.java:334)
+	at phylonet.coalescent.TurnTaskToScores$GPUCall.<init>(TurnTaskToScores.java:310)
+	at phylonet.coalescent.TurnTaskToScores.<init>(TurnTaskToScores.java:81)
+	at phylonet.coalescent.CommandLine.runOnOneInput(CommandLine.java:767)
+	at phylonet.coalescent.CommandLine.runInference(CommandLine.java:723)
+	at phylonet.coalescent.CommandLine.main(CommandLine.java:604)

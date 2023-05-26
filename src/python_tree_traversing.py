@@ -1,5 +1,6 @@
 import os
 import subprocess
+from pprint import pprint
 from typing import List, Tuple
 
 import Bio.Phylo.Newick
@@ -89,7 +90,10 @@ def filter_doubles_LC(sorted_LC_list):
     """
     i = 0
     while i < len(sorted_LC_list):  # Iterate through list in a high to low LC order.
-        children = sorted_LC_list[i][0].get_nonterminals()  # Get a list of children of the node
+        node = sorted_LC_list[i][0]
+        
+        children = node.get_nonterminals() + node.get_terminals() # Get a list of children of the node
+        
         j = i + 1
         while j < len(sorted_LC_list):
             # For each entry check if nodes lower in the list are descendants of this node
@@ -103,7 +107,7 @@ def filter_doubles_LC(sorted_LC_list):
     return sorted_LC_list
 
 
-def isAnsestor(node, dataframe):
+def isAncestor(node, dataframe):
     OTUS = node.get_terminals()  # Get a list of OTUs under a node.
     return check_taxon(OTUS, dataframe)  # Check if they belong to the same taxon.
 
@@ -113,7 +117,7 @@ def get_existing_individuals():
     """
     Returns a list of individuals that exist in the VCF.
     """
-    command = """zgrep -m 1 '^#CHROM' "../malawi_cichlids_v3_phase.biallelic_snps.pass.ancestral_as_sample.benthic.chr1.vcf.gz" | awk -F "FORMAT\t" '{print $2}' | awk -F "\t
+    command = """zgrep -m 1 '^#CHROM' "Data/malawi_cichlids_v3_phase.biallelic_snps.pass.ancestral_as_sample.benthic.chr1.vcf.gz" | awk -F "FORMAT\t" '{print $2}' | awk -F "\t
 ancestral" '{print $1}'"""
     existing_individuals_string = subprocess.check_output(command, shell=True, encoding="utf-8")
     existing_individuals_list = set(existing_individuals_string.split("\t"))
@@ -121,8 +125,10 @@ ancestral" '{print $1}'"""
 
 
 def filter_individuals_by_existence_in_VCF(individuals: List[Tuple[Clade, int]]):
+
     print(len(individuals))
     existing_individuals = get_existing_individuals()
+    print('CICHM16429665' in existing_individuals)
     print(len(existing_individuals))
     indx = 0
     while indx < len(individuals):
@@ -139,10 +145,8 @@ def filter_LC(LC_list):
     Filters the list of LCs.
     """
     LC_list.sort(key=lambda x: x[1], reverse=True)  # Sort this list by LC, high to low.
-
     # Remove double entries from the list of LCs.
     LC_list = filter_doubles_LC(LC_list)
-
     return LC_list
 
 def findTwoIndividuals(OTUS, existing_individuals):
@@ -155,20 +159,20 @@ def findTwoIndividuals(OTUS, existing_individuals):
             individuals.append(OTU.name)
             if len(individuals) == 2:
                 return individuals[0], individuals[1]
+    if len(individuals) == 1:
+        return individuals[0], None
     return None, None
 def select_individuals():
     """
     Selects individuals from the tree.
     """
-    tree = load_tree()  # Load the tree
+    tree: Phylo.Newick = load_tree()  # Load the tree
     dataframe = load_metadata()  # Load the metadata
 
     lc_list = []  # pairs of (node number, count of OTUS(leaves) under this node (= LC))
     species: str  # species name of the fish
-
-    nonterminals = tree.get_nonterminals()
-    for node in nonterminals:  # Iterate over all nodes in the tree
-        if isAnsestor(node, dataframe):
+    for node in tree.get_nonterminals() + tree.get_terminals():  # Iterate over all nodes in the tree
+        if isAncestor(node, dataframe):
             # Write down node number and count of OTUS(leaves) under this node (= LC).
             lc_list.append((node, len(node.get_terminals())))
 
@@ -177,7 +181,7 @@ def select_individuals():
     # which belong to the same taxon.
     # Then for each of these nodes you get a list of OTUs, pick two at random and it's done.
     # We pick the first two OTUs of each node.
-    individuals_dataframe = pd.DataFrame(columns=['taxus', 'id_individual_1', 'id_individual_2'])
+    individuals_dataframe = pd.DataFrame(columns=['taxus', 'id_individual'])
     existing_individuals_in_lake = get_existing_individuals()
     for node in lc_list:
         OTUS = node[0].get_terminals()
@@ -185,9 +189,12 @@ def select_individuals():
         taxus_id = get_taxus_identifier(OTUS[0].name, dataframe)
         id_individual_1, id_individual_2 = findTwoIndividuals(OTUS, existing_individuals_in_lake)
         # If 2 fishes exist in the lake
-        if id_individual_1 and id_individual_2:
+        if id_individual_1:
             # Add the species name and the first two OTUs of each node to the dataframe
-            row = {'taxus': taxus_id, 'id_individual_1': id_individual_1, 'id_individual_2': id_individual_2}
+            row = {'taxus': taxus_id, 'id_individual': id_individual_1}
+            individuals_dataframe = pd.concat([individuals_dataframe, pd.DataFrame(row, index=[0])], ignore_index=True)
+        if id_individual_2:
+            row = {'taxus': taxus_id, 'id_individual': id_individual_2}
             individuals_dataframe = pd.concat([individuals_dataframe, pd.DataFrame(row, index=[0])], ignore_index=True)
     toTSV(individuals_dataframe)
     return individuals_dataframe
@@ -197,7 +204,7 @@ def toTSV(dataframe):
     """
     Saves the dataframe to a tsv file.
     """
-    dataframe.to_csv('individuals.tsv', sep='\t', index=False)
+    dataframe.to_csv('./Data/individuals.tsv', sep='\t', index=False)
 
 def get_individuals():
     """
@@ -236,6 +243,7 @@ def test():
 
 
 if __name__ == "__main__":
+
     individuals: pd.DataFrame = select_individuals()
     # individuals = get_existing_individuals()
     # print(individuals)

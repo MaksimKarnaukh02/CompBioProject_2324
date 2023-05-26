@@ -1,0 +1,491 @@
+
+================== ASTRAL ===================== 
+
+This is ASTRAL version 5.5.6
+Gene trees are treated as unrooted
+424 trees read from test_data/1KP-genetrees-BS10.tre
+All output trees will be *arbitrarily* rooted at Aquilegia_formosa
+
+======== Running the main analysis
+Number of taxa: 103 (103 species)
+Taxa: [Aquilegia_formosa, Eschscholzia_californica, Tanacetum_parthenium, Inula_helenium, Diospyros_malabarica, Ipomoea_purpurea, Allamanda_cathartica, Catharanthus_roseus, Rosmarinus_officinalis, Carica_papaya, Hibiscus_cannabinus, Arabidopsis_thaliana, Kochia_scoparia, Amborella_trichopoda, Cycas_micholitzii, Pinus_taeda, Cedrus_libani, Prumnopitys_andina, Taxus_baccata, Cunninghamia_lanceolata, Juniperus_scopulorum, Sciadopitys_verticillata, Gnetum_montanum, Ginkgo_biloba, Selaginella_moellendorffii_genome, Pseudolycopodiella_caroliniana, Dendrolycopodium_obscurum, Huperzia_squarrosa, Metzgeria_crassipilis, Bazzania_trilobata, Marchantia_polymorpha, Riccia_sp, Chlorokybus_atmophyticus, Chaetosphaeridium_globosum, Nephroselmis_pyriformis, Spirotaenia_minuta, Klebsormidium_subtile, Mesostigma_viride, Entransia_fimbriata, Coleochaete_irregularis, Coleochaete_scutata, Mougeotia_sp, Cylindrocystis_cushleckae, Mesotaenium_endlicherianum, Cylindrocystis_brebissonii, Monomastix_opisthostigma, Cosmarium_ochthodes, Netrium_digitus, Roya_obtusa, Polytrichum_commune, Rosulabryum_cf_capillare, Bryum_argenteum, Thuidium_delicatulum, Leucodon_brachypus, Rhynchostegium_serrulatum, Anomodon_attenuatus, Hedwigia_ciliata, Sphagnum_lescurii, Pteridium_aquilinum, Equisetum_diffusum, Psilotum_nudum, Nuphar_advena, Persea_americana, Liriodendron_tulipifera, Houttuynia_cordata, Saruma_henryi, Acorus_americanus, Smilax_bona, Yucca_filamentosa, Sorghum_bicolor, Zea_mays, Oryza_sativa, Brachypodium_distachyon, Dioscorea_villosa, Sabal_bermudana, Sarcandra_glabra, Uronema_sp, Colchicum_autumnale, Alsophila_spinulosa, Selaginella_moellendorffii_1kp, Sphaerocarpos_texanus, Marchantia_emarginata, Nothoceros_aenigmaticus, Ceratodon_purpureus, Ephedra_sinica, Podophyllum_peltatum, Vitis_vinifera, Boehmeria_nivea, Larrea_tridentata, Kadsura_heteroclita, Medicago_truncatula, Spirogyra_sp, Nothoceros_vincentianus, Ophioglossum_petiolatum, Angiopteris_evecta, Physcomitrella_patens, Zamia_vazquezii, Pyramimonas_parkeae, Penium_margaritaceum, Welwitschia_mirabilis, Chara_vulgaris, Populus_trichocarpa, Cycas_rumphii]
+Taxon occupancy: {Pseudolycopodiella_caroliniana=282, Kadsura_heteroclita=234, Entransia_fimbriata=294, Roya_obtusa=233, Eschscholzia_californica=394, Uronema_sp=93, Mesostigma_viride=154, Diospyros_malabarica=371, Polytrichum_commune=312, Sabal_bermudana=257, Saruma_henryi=366, Anomodon_attenuatus=295, Penium_margaritaceum=106, Pteridium_aquilinum=269, Zea_mays=304, Marchantia_emarginata=196, Medicago_truncatula=249, Nuphar_advena=387, Kochia_scoparia=345, Selaginella_moellendorffii_genome=333, Spirotaenia_minuta=150, Catharanthus_roseus=391, Boehmeria_nivea=342, Ephedra_sinica=187, Liriodendron_tulipifera=354, Bazzania_trilobata=227, Inula_helenium=282, Dioscorea_villosa=335, Allamanda_cathartica=325, Chaetosphaeridium_globosum=218, Populus_trichocarpa=237, Ginkgo_biloba=295, Acorus_americanus=341, Monomastix_opisthostigma=174, Podophyllum_peltatum=363, Vitis_vinifera=373, Nothoceros_aenigmaticus=244, Chara_vulgaris=138, Sarcandra_glabra=312, Sphaerocarpos_texanus=291, Dendrolycopodium_obscurum=261, Colchicum_autumnale=169, Cosmarium_ochthodes=140, Riccia_sp=316, Ophioglossum_petiolatum=264, Metzgeria_crassipilis=238, Ceratodon_purpureus=288, Ipomoea_purpurea=355, Rosmarinus_officinalis=285, Zamia_vazquezii=174, Pyramimonas_parkeae=181, Nothoceros_vincentianus=170, Netrium_digitus=204, Houttuynia_cordata=221, Coleochaete_scutata=292, Leucodon_brachypus=285, Persea_americana=330, Yucca_filamentosa=273, Welwitschia_mirabilis=79, Hibiscus_cannabinus=322, Sphagnum_lescurii=309, Amborella_trichopoda=399, Cunninghamia_lanceolata=325, Klebsormidium_subtile=252, Physcomitrella_patens=279, Rhynchostegium_serrulatum=335, Larrea_tridentata=276, Spirogyra_sp=193, Mesotaenium_endlicherianum=264, Selaginella_moellendorffii_1kp=199, Pinus_taeda=382, Mougeotia_sp=249, Chlorokybus_atmophyticus=236, Cylindrocystis_brebissonii=298, Sorghum_bicolor=388, Huperzia_squarrosa=280, Oryza_sativa=375, Juniperus_scopulorum=281, Cylindrocystis_cushleckae=324, Sciadopitys_verticillata=348, Marchantia_polymorpha=318, Prumnopitys_andina=379, Hedwigia_ciliata=311, Tanacetum_parthenium=334, Rosulabryum_cf_capillare=287, Coleochaete_irregularis=275, Cycas_micholitzii=295, Angiopteris_evecta=250, Taxus_baccata=331, Cycas_rumphii=71, Nephroselmis_pyriformis=187, Aquilegia_formosa=242, Carica_papaya=366, Cedrus_libani=274, Bryum_argenteum=259, Thuidium_delicatulum=313, Brachypodium_distachyon=375, Smilax_bona=247, Alsophila_spinulosa=236, Psilotum_nudum=244, Arabidopsis_thaliana=424, Gnetum_montanum=293, Equisetum_diffusum=309}
+Number of gene trees: 424
+424 trees have missing taxa
+Calculating quartet distance matrix (for completion of X)
+Species tree distances calculated ...
+Will attempt to complete bipartitions from X before adding using a distance matrix.
+Building set of clusters (X) from gene trees 
+Number of clusters added from gene tree 0 in round0 501
+Number of clusters added from gene tree 1 in round0 567
+Number of clusters added from gene tree 2 in round0 629
+Number of clusters added from gene tree 3 in round0 723
+Number of clusters added from gene tree 4 in round0 827
+Number of clusters added from gene tree 5 in round0 879
+Number of clusters added from gene tree 6 in round0 911
+Number of clusters added from gene tree 7 in round0 1017
+Number of clusters added from gene tree 8 in round0 1095
+Number of clusters added from gene tree 9 in round0 1161
+Number of clusters added from gene tree 10 in round0 1247
+Number of clusters added from gene tree 11 in round0 1313
+Number of clusters added from gene tree 12 in round0 1337
+Number of clusters added from gene tree 13 in round0 1383
+Number of clusters added from gene tree 14 in round0 1423
+Number of clusters added from gene tree 15 in round0 1473
+Number of clusters added from gene tree 16 in round0 1521
+Number of clusters added from gene tree 17 in round0 1563
+Number of clusters added from gene tree 18 in round0 1597
+Number of clusters added from gene tree 19 in round0 1669
+Number of clusters added from gene tree 20 in round0 1695
+Number of clusters added from gene tree 21 in round0 1717
+Number of clusters added from gene tree 22 in round0 1821
+Number of clusters added from gene tree 23 in round0 1859
+Number of clusters added from gene tree 24 in round0 1907
+Number of clusters added from gene tree 25 in round0 1939
+Number of clusters added from gene tree 26 in round0 1943
+Number of clusters added from gene tree 27 in round0 1973
+Number of clusters added from gene tree 28 in round0 1983
+Number of clusters added from gene tree 29 in round0 2053
+Number of clusters added from gene tree 30 in round0 2115
+Number of clusters added from gene tree 31 in round0 2169
+Number of clusters added from gene tree 32 in round0 2211
+Number of clusters added from gene tree 33 in round0 2241
+Number of clusters added from gene tree 34 in round0 2269
+Number of clusters added from gene tree 35 in round0 2307
+Number of clusters added from gene tree 36 in round0 2377
+Number of clusters added from gene tree 37 in round0 2389
+Number of clusters added from gene tree 38 in round0 2405
+Number of clusters added from gene tree 39 in round0 2449
+Number of clusters added from gene tree 40 in round0 2517
+Number of clusters added from gene tree 41 in round0 2525
+Number of clusters added from gene tree 42 in round0 2551
+Number of clusters added from gene tree 43 in round0 2605
+Number of clusters added from gene tree 44 in round0 2655
+Number of clusters added from gene tree 45 in round0 2665
+Number of clusters added from gene tree 46 in round0 2691
+Number of clusters added from gene tree 47 in round0 2703
+Number of clusters added from gene tree 48 in round0 2793
+Number of clusters added from gene tree 49 in round0 2871
+Number of clusters added from gene tree 50 in round0 2871
+Number of clusters added from gene tree 51 in round0 2883
+Number of clusters added from gene tree 52 in round0 2961
+Number of clusters added from gene tree 53 in round0 2997
+Number of clusters added from gene tree 54 in round0 3077
+Number of clusters added from gene tree 55 in round0 3129
+Number of clusters added from gene tree 56 in round0 3171
+Number of clusters added from gene tree 57 in round0 3203
+Number of clusters added from gene tree 58 in round0 3245
+Number of clusters added from gene tree 59 in round0 3285
+Number of clusters added from gene tree 60 in round0 3313
+Number of clusters added from gene tree 61 in round0 3323
+Number of clusters added from gene tree 62 in round0 3343
+Number of clusters added from gene tree 63 in round0 3349
+Number of clusters added from gene tree 64 in round0 3369
+Number of clusters added from gene tree 65 in round0 3399
+Number of clusters added from gene tree 66 in round0 3433
+Number of clusters added from gene tree 67 in round0 3469
+Number of clusters added from gene tree 68 in round0 3497
+Number of clusters added from gene tree 69 in round0 3525
+Number of clusters added from gene tree 70 in round0 3599
+Number of clusters added from gene tree 71 in round0 3683
+Number of clusters added from gene tree 72 in round0 3725
+Number of clusters added from gene tree 73 in round0 3823
+Number of clusters added from gene tree 74 in round0 3835
+Number of clusters added from gene tree 75 in round0 3845
+Number of clusters added from gene tree 76 in round0 3925
+Number of clusters added from gene tree 77 in round0 3943
+Number of clusters added from gene tree 78 in round0 3955
+Number of clusters added from gene tree 79 in round0 3973
+Number of clusters added from gene tree 80 in round0 4007
+Number of clusters added from gene tree 81 in round0 4045
+Number of clusters added from gene tree 82 in round0 4049
+Number of clusters added from gene tree 83 in round0 4083
+Number of clusters added from gene tree 84 in round0 4145
+Number of clusters added from gene tree 85 in round0 4157
+Number of clusters added from gene tree 86 in round0 4241
+Number of clusters added from gene tree 87 in round0 4283
+Number of clusters added from gene tree 88 in round0 4299
+Number of clusters added from gene tree 89 in round0 4309
+Number of clusters added from gene tree 90 in round0 4323
+Number of clusters added from gene tree 91 in round0 4343
+Number of clusters added from gene tree 92 in round0 4373
+Number of clusters added from gene tree 93 in round0 4401
+Number of clusters added from gene tree 94 in round0 4409
+Number of clusters added from gene tree 95 in round0 4443
+Number of clusters added from gene tree 96 in round0 4469
+Number of clusters added from gene tree 97 in round0 4499
+Number of clusters added from gene tree 98 in round0 4553
+Number of clusters added from gene tree 99 in round0 4595
+Number of clusters added from gene tree 100 in round0 4629
+Number of clusters added from gene tree 101 in round0 4675
+Number of clusters added from gene tree 102 in round0 4691
+Number of clusters added from gene tree 103 in round0 4717
+Number of clusters added from gene tree 104 in round0 4741
+Number of clusters added from gene tree 105 in round0 4761
+Number of clusters added from gene tree 106 in round0 4791
+Number of clusters added from gene tree 107 in round0 4817
+Number of clusters added from gene tree 108 in round0 4819
+Number of clusters added from gene tree 109 in round0 4839
+Number of clusters added from gene tree 110 in round0 4869
+Number of clusters added from gene tree 111 in round0 4879
+Number of clusters added from gene tree 112 in round0 4901
+Number of clusters added from gene tree 113 in round0 4927
+Number of clusters added from gene tree 114 in round0 4935
+Number of clusters added from gene tree 115 in round0 4953
+Number of clusters added from gene tree 116 in round0 4999
+Number of clusters added from gene tree 117 in round0 4999
+Number of clusters added from gene tree 118 in round0 5035
+Number of clusters added from gene tree 119 in round0 5057
+Number of clusters added from gene tree 120 in round0 5069
+Number of clusters added from gene tree 121 in round0 5107
+Number of clusters added from gene tree 122 in round0 5109
+Number of clusters added from gene tree 123 in round0 5137
+Number of clusters added from gene tree 124 in round0 5195
+Number of clusters added from gene tree 125 in round0 5217
+Number of clusters added from gene tree 126 in round0 5291
+Number of clusters added from gene tree 127 in round0 5297
+Number of clusters added from gene tree 128 in round0 5317
+Number of clusters added from gene tree 129 in round0 5367
+Number of clusters added from gene tree 130 in round0 5403
+Number of clusters added from gene tree 131 in round0 5403
+Number of clusters added from gene tree 132 in round0 5431
+Number of clusters added from gene tree 133 in round0 5459
+Number of clusters added from gene tree 134 in round0 5483
+Number of clusters added from gene tree 135 in round0 5493
+Number of clusters added from gene tree 136 in round0 5511
+Number of clusters added from gene tree 137 in round0 5581
+Number of clusters added from gene tree 138 in round0 5595
+Number of clusters added from gene tree 139 in round0 5607
+Number of clusters added from gene tree 140 in round0 5665
+Number of clusters added from gene tree 141 in round0 5695
+Number of clusters added from gene tree 142 in round0 5727
+Number of clusters added from gene tree 143 in round0 5751
+Number of clusters added from gene tree 144 in round0 5757
+Number of clusters added from gene tree 145 in round0 5763
+Number of clusters added from gene tree 146 in round0 5773
+Number of clusters added from gene tree 147 in round0 5789
+Number of clusters added from gene tree 148 in round0 5797
+Number of clusters added from gene tree 149 in round0 5831
+Number of clusters added from gene tree 150 in round0 5873
+Number of clusters added from gene tree 151 in round0 5921
+Number of clusters added from gene tree 152 in round0 5923
+Number of clusters added from gene tree 153 in round0 5923
+Number of clusters added from gene tree 154 in round0 5971
+Number of clusters added from gene tree 155 in round0 6001
+Number of clusters added from gene tree 156 in round0 6013
+Number of clusters added from gene tree 157 in round0 6019
+Number of clusters added from gene tree 158 in round0 6091
+Number of clusters added from gene tree 159 in round0 6097
+Number of clusters added from gene tree 160 in round0 6129
+Number of clusters added from gene tree 161 in round0 6165
+Number of clusters added from gene tree 162 in round0 6169
+Number of clusters added from gene tree 163 in round0 6177
+Number of clusters added from gene tree 164 in round0 6209
+Number of clusters added from gene tree 165 in round0 6221
+Number of clusters added from gene tree 166 in round0 6221
+Number of clusters added from gene tree 167 in round0 6225
+Number of clusters added from gene tree 168 in round0 6229
+Number of clusters added from gene tree 169 in round0 6235
+Number of clusters added from gene tree 170 in round0 6253
+Number of clusters added from gene tree 171 in round0 6275
+Number of clusters added from gene tree 172 in round0 6287
+Number of clusters added from gene tree 173 in round0 6339
+Number of clusters added from gene tree 174 in round0 6347
+Number of clusters added from gene tree 175 in round0 6363
+Number of clusters added from gene tree 176 in round0 6365
+Number of clusters added from gene tree 177 in round0 6377
+Number of clusters added from gene tree 178 in round0 6391
+Number of clusters added from gene tree 179 in round0 6393
+Number of clusters added from gene tree 180 in round0 6393
+Number of clusters added from gene tree 181 in round0 6401
+Number of clusters added from gene tree 182 in round0 6415
+Number of clusters added from gene tree 183 in round0 6431
+Number of clusters added from gene tree 184 in round0 6443
+Number of clusters added from gene tree 185 in round0 6477
+Number of clusters added from gene tree 186 in round0 6489
+Number of clusters added from gene tree 187 in round0 6495
+Number of clusters added from gene tree 188 in round0 6525
+Number of clusters added from gene tree 189 in round0 6533
+Number of clusters added from gene tree 190 in round0 6539
+Number of clusters added from gene tree 191 in round0 6547
+Number of clusters added from gene tree 192 in round0 6555
+Number of clusters added from gene tree 193 in round0 6565
+Number of clusters added from gene tree 194 in round0 6565
+Number of clusters added from gene tree 195 in round0 6565
+Number of clusters added from gene tree 196 in round0 6609
+Number of clusters added from gene tree 197 in round0 6615
+Number of clusters added from gene tree 198 in round0 6665
+Number of clusters added from gene tree 199 in round0 6669
+Number of clusters added from gene tree 200 in round0 6755
+Number of clusters added from gene tree 201 in round0 6755
+Number of clusters added from gene tree 202 in round0 6761
+Number of clusters added from gene tree 203 in round0 6793
+Number of clusters added from gene tree 204 in round0 6829
+Number of clusters added from gene tree 205 in round0 6833
+Number of clusters added from gene tree 206 in round0 6883
+Number of clusters added from gene tree 207 in round0 6891
+Number of clusters added from gene tree 208 in round0 6909
+Number of clusters added from gene tree 209 in round0 6919
+Number of clusters added from gene tree 210 in round0 6929
+Number of clusters added from gene tree 211 in round0 6975
+Number of clusters added from gene tree 212 in round0 6983
+Number of clusters added from gene tree 213 in round0 7005
+Number of clusters added from gene tree 214 in round0 7033
+Number of clusters added from gene tree 215 in round0 7107
+Number of clusters added from gene tree 216 in round0 7109
+Number of clusters added from gene tree 217 in round0 7109
+Number of clusters added from gene tree 218 in round0 7115
+Number of clusters added from gene tree 219 in round0 7131
+Number of clusters added from gene tree 220 in round0 7159
+Number of clusters added from gene tree 221 in round0 7169
+Number of clusters added from gene tree 222 in round0 7245
+Number of clusters added from gene tree 223 in round0 7249
+Number of clusters added from gene tree 224 in round0 7269
+Number of clusters added from gene tree 225 in round0 7293
+Number of clusters added from gene tree 226 in round0 7345
+Number of clusters added from gene tree 227 in round0 7379
+Number of clusters added from gene tree 228 in round0 7379
+Number of clusters added from gene tree 229 in round0 7389
+Number of clusters added from gene tree 230 in round0 7417
+Number of clusters added from gene tree 231 in round0 7429
+Number of clusters added from gene tree 232 in round0 7453
+Number of clusters added from gene tree 233 in round0 7463
+Number of clusters added from gene tree 234 in round0 7513
+Number of clusters added from gene tree 235 in round0 7513
+Number of clusters added from gene tree 236 in round0 7517
+Number of clusters added from gene tree 237 in round0 7521
+Number of clusters added from gene tree 238 in round0 7537
+Number of clusters added from gene tree 239 in round0 7553
+Number of clusters added from gene tree 240 in round0 7605
+Number of clusters added from gene tree 241 in round0 7637
+Number of clusters added from gene tree 242 in round0 7685
+Number of clusters added from gene tree 243 in round0 7705
+Number of clusters added from gene tree 244 in round0 7763
+Number of clusters added from gene tree 245 in round0 7803
+Number of clusters added from gene tree 246 in round0 7831
+Number of clusters added from gene tree 247 in round0 7899
+Number of clusters added from gene tree 248 in round0 7939
+Number of clusters added from gene tree 249 in round0 7947
+Number of clusters added from gene tree 250 in round0 7967
+Number of clusters added from gene tree 251 in round0 7995
+Number of clusters added from gene tree 252 in round0 8017
+Number of clusters added from gene tree 253 in round0 8035
+Number of clusters added from gene tree 254 in round0 8051
+Number of clusters added from gene tree 255 in round0 8055
+Number of clusters added from gene tree 256 in round0 8095
+Number of clusters added from gene tree 257 in round0 8101
+Number of clusters added from gene tree 258 in round0 8127
+Number of clusters added from gene tree 259 in round0 8149
+Number of clusters added from gene tree 260 in round0 8193
+Number of clusters added from gene tree 261 in round0 8215
+Number of clusters added from gene tree 262 in round0 8269
+Number of clusters added from gene tree 263 in round0 8293
+Number of clusters added from gene tree 264 in round0 8323
+Number of clusters added from gene tree 265 in round0 8379
+Number of clusters added from gene tree 266 in round0 8381
+Number of clusters added from gene tree 267 in round0 8391
+Number of clusters added from gene tree 268 in round0 8429
+Number of clusters added from gene tree 269 in round0 8429
+Number of clusters added from gene tree 270 in round0 8433
+Number of clusters added from gene tree 271 in round0 8471
+Number of clusters added from gene tree 272 in round0 8497
+Number of clusters added from gene tree 273 in round0 8517
+Number of clusters added from gene tree 274 in round0 8535
+Number of clusters added from gene tree 275 in round0 8559
+Number of clusters added from gene tree 276 in round0 8569
+Number of clusters added from gene tree 277 in round0 8585
+Number of clusters added from gene tree 278 in round0 8623
+Number of clusters added from gene tree 279 in round0 8665
+Number of clusters added from gene tree 280 in round0 8723
+Number of clusters added from gene tree 281 in round0 8751
+Number of clusters added from gene tree 282 in round0 8769
+Number of clusters added from gene tree 283 in round0 8771
+Number of clusters added from gene tree 284 in round0 8783
+Number of clusters added from gene tree 285 in round0 8859
+Number of clusters added from gene tree 286 in round0 8919
+Number of clusters added from gene tree 287 in round0 8925
+Number of clusters added from gene tree 288 in round0 8951
+Number of clusters added from gene tree 289 in round0 8951
+Number of clusters added from gene tree 290 in round0 8951
+Number of clusters added from gene tree 291 in round0 8961
+Number of clusters added from gene tree 292 in round0 8961
+Number of clusters added from gene tree 293 in round0 8985
+Number of clusters added from gene tree 294 in round0 9041
+Number of clusters added from gene tree 295 in round0 9053
+Number of clusters added from gene tree 296 in round0 9069
+Number of clusters added from gene tree 297 in round0 9087
+Number of clusters added from gene tree 298 in round0 9105
+Number of clusters added from gene tree 299 in round0 9107
+Number of clusters added from gene tree 300 in round0 9115
+Number of clusters added from gene tree 301 in round0 9143
+Number of clusters added from gene tree 302 in round0 9173
+Number of clusters added from gene tree 303 in round0 9197
+Number of clusters added from gene tree 304 in round0 9269
+Number of clusters added from gene tree 305 in round0 9295
+Number of clusters added from gene tree 306 in round0 9323
+Number of clusters added from gene tree 307 in round0 9331
+Number of clusters added from gene tree 308 in round0 9359
+Number of clusters added from gene tree 309 in round0 9465
+Number of clusters added from gene tree 310 in round0 9465
+Number of clusters added from gene tree 311 in round0 9485
+Number of clusters added from gene tree 312 in round0 9503
+Number of clusters added from gene tree 313 in round0 9565
+Number of clusters added from gene tree 314 in round0 9611
+Number of clusters added from gene tree 315 in round0 9617
+Number of clusters added from gene tree 316 in round0 9625
+Number of clusters added from gene tree 317 in round0 9643
+Number of clusters added from gene tree 318 in round0 9655
+Number of clusters added from gene tree 319 in round0 9677
+Number of clusters added from gene tree 320 in round0 9717
+Number of clusters added from gene tree 321 in round0 9765
+Number of clusters added from gene tree 322 in round0 9825
+Number of clusters added from gene tree 323 in round0 9853
+Number of clusters added from gene tree 324 in round0 9855
+Number of clusters added from gene tree 325 in round0 9881
+Number of clusters added from gene tree 326 in round0 9891
+Number of clusters added from gene tree 327 in round0 9909
+Number of clusters added from gene tree 328 in round0 9937
+Number of clusters added from gene tree 329 in round0 9937
+Number of clusters added from gene tree 330 in round0 9941
+Number of clusters added from gene tree 331 in round0 9967
+Number of clusters added from gene tree 332 in round0 9969
+Number of clusters added from gene tree 333 in round0 9975
+Number of clusters added from gene tree 334 in round0 9987
+Number of clusters added from gene tree 335 in round0 10051
+Number of clusters added from gene tree 336 in round0 10057
+Number of clusters added from gene tree 337 in round0 10061
+Number of clusters added from gene tree 338 in round0 10075
+Number of clusters added from gene tree 339 in round0 10075
+Number of clusters added from gene tree 340 in round0 10085
+Number of clusters added from gene tree 341 in round0 10097
+Number of clusters added from gene tree 342 in round0 10099
+Number of clusters added from gene tree 343 in round0 10103
+Number of clusters added from gene tree 344 in round0 10121
+Number of clusters added from gene tree 345 in round0 10121
+Number of clusters added from gene tree 346 in round0 10153
+Number of clusters added from gene tree 347 in round0 10155
+Number of clusters added from gene tree 348 in round0 10187
+Number of clusters added from gene tree 349 in round0 10213
+Number of clusters added from gene tree 350 in round0 10215
+Number of clusters added from gene tree 351 in round0 10247
+Number of clusters added from gene tree 352 in round0 10257
+Number of clusters added from gene tree 353 in round0 10289
+Number of clusters added from gene tree 354 in round0 10301
+Number of clusters added from gene tree 355 in round0 10321
+Number of clusters added from gene tree 356 in round0 10353
+Number of clusters added from gene tree 357 in round0 10363
+Number of clusters added from gene tree 358 in round0 10383
+Number of clusters added from gene tree 359 in round0 10395
+Number of clusters added from gene tree 360 in round0 10475
+Number of clusters added from gene tree 361 in round0 10489
+Number of clusters added from gene tree 362 in round0 10531
+Number of clusters added from gene tree 363 in round0 10549
+Number of clusters added from gene tree 364 in round0 10565
+Number of clusters added from gene tree 365 in round0 10607
+Number of clusters added from gene tree 366 in round0 10643
+Number of clusters added from gene tree 367 in round0 10665
+Number of clusters added from gene tree 368 in round0 10671
+Number of clusters added from gene tree 369 in round0 10715
+Number of clusters added from gene tree 370 in round0 10715
+Number of clusters added from gene tree 371 in round0 10743
+Number of clusters added from gene tree 372 in round0 10753
+Number of clusters added from gene tree 373 in round0 10777
+Number of clusters added from gene tree 374 in round0 10791
+Number of clusters added from gene tree 375 in round0 10805
+Number of clusters added from gene tree 376 in round0 10809
+Number of clusters added from gene tree 377 in round0 10839
+Number of clusters added from gene tree 378 in round0 10849
+Number of clusters added from gene tree 379 in round0 10875
+Number of clusters added from gene tree 380 in round0 10875
+Number of clusters added from gene tree 381 in round0 10883
+Number of clusters added from gene tree 382 in round0 10901
+Number of clusters added from gene tree 383 in round0 10937
+Number of clusters added from gene tree 384 in round0 10941
+Number of clusters added from gene tree 385 in round0 10969
+Number of clusters added from gene tree 386 in round0 10983
+Number of clusters added from gene tree 387 in round0 11013
+Number of clusters added from gene tree 388 in round0 11047
+Number of clusters added from gene tree 389 in round0 11095
+Number of clusters added from gene tree 390 in round0 11109
+Number of clusters added from gene tree 391 in round0 11117
+Number of clusters added from gene tree 392 in round0 11123
+Number of clusters added from gene tree 393 in round0 11129
+Number of clusters added from gene tree 394 in round0 11165
+Number of clusters added from gene tree 395 in round0 11167
+Number of clusters added from gene tree 396 in round0 11181
+Number of clusters added from gene tree 397 in round0 11189
+Number of clusters added from gene tree 398 in round0 11201
+Number of clusters added from gene tree 399 in round0 11213
+Number of clusters added from gene tree 400 in round0 11235
+Number of clusters added from gene tree 401 in round0 11237
+Number of clusters added from gene tree 402 in round0 11249
+Number of clusters added from gene tree 403 in round0 11263
+Number of clusters added from gene tree 404 in round0 11263
+Number of clusters added from gene tree 405 in round0 11265
+Number of clusters added from gene tree 406 in round0 11267
+Number of clusters added from gene tree 407 in round0 11269
+Number of clusters added from gene tree 408 in round0 11277
+Number of clusters added from gene tree 409 in round0 11295
+Number of clusters added from gene tree 410 in round0 11305
+Number of clusters added from gene tree 411 in round0 11373
+Number of clusters added from gene tree 412 in round0 11395
+Number of clusters added from gene tree 413 in round0 11395
+Number of clusters added from gene tree 414 in round0 11449
+Number of clusters added from gene tree 415 in round0 11461
+Number of clusters added from gene tree 416 in round0 11533
+Number of clusters added from gene tree 417 in round0 11561
+Number of clusters added from gene tree 418 in round0 11611
+Number of clusters added from gene tree 419 in round0 11619
+Number of clusters added from gene tree 420 in round0 11631
+Number of clusters added from gene tree 421 in round0 11641
+Number of clusters added from gene tree 422 in round0 11649
+Number of clusters added from gene tree 423 in round0 11669
+------------------------------
+gradient0: 11669
+Number of Clusters after addition by distance: 11669
+calculating extra bipartitions to be added at level 1 ...
+Adding to X using resolutions of greedy consensus ...
+Limit for sigma of degrees:2625
+polytomy size limit : 10
+discarded polytomies:  [3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 10]
+Threshold 0.0:
+Threshold 0.01:
+Threshold 0.02:
+Threshold 0.05:
+Threshold 0.1:
+Threshold 0.2:
+polytomy of size 3; rounds with additions with at least 5 support: 0; clusters: 11669
+polytomy of size 4; rounds with additions with at least 5 support: 0; clusters: 11669
+polytomy of size 3; rounds with additions with at least 5 support: 0; clusters: 11669
+polytomy of size 4; rounds with additions with at least 5 support: 0; clusters: 11669
+Threshold 0.3333333333333333:
+polytomy of size 10; rounds with additions with at least 5 support: 0; clusters: 11669
+polytomy of size 5; rounds with additions with at least 5 support: 0; clusters: 11669
+polytomy of size 5; rounds with additions with at least 5 support: 0; clusters: 11669
+polytomy of size 4; rounds with additions with at least 5 support: 0; clusters: 11669
+polytomy of size 5; rounds with additions with at least 5 support: 0; clusters: 11669
+polytomy of size 4; rounds with additions with at least 5 support: 0; clusters: 11669
+polytomy of size 5; rounds with additions with at least 5 support: 0; clusters: 11669
+max k is :0
+Number of Clusters after addition by greedy: 11669
+gradient0 in heuristiic: 11669
+partitions formed in 5.876 secs
+Dynamic Programming starting after 5.876 secs
+Using tree-based weight calculation.
+Using polytree-based weight calculation.
+Polytree max score: 354167087
+Polytree building time: 0.166 seconds.
+Number of quartet trees in the gene trees: 354167087
+Size of largest cluster: 103
+Greedy score: 311740339
+estimationFactor: 1.136096432486397
+Sub-optimal score: 323827011
+Total Number of elements weighted: 37358
+Normalized score (portion of input quartet trees satisfied before correcting for multiple individuals): 0.9232144516014837
+Optimization score: 326972173
+Optimal tree inferred in 47.904 secs.
+(Ginkgo_biloba,((Zamia_vazquezii,(Cycas_micholitzii,Cycas_rumphii)),(((Ephedra_sinica,(Gnetum_montanum,Welwitschia_mirabilis)),((Pinus_taeda,Cedrus_libani),(Prumnopitys_andina,(Sciadopitys_verticillata,(Taxus_baccata,(Cunninghamia_lanceolata,Juniperus_scopulorum)))))),((Amborella_trichopoda,(Nuphar_advena,(Kadsura_heteroclita,((Acorus_americanus,((Dioscorea_villosa,(Smilax_bona,Colchicum_autumnale)),(Yucca_filamentosa,(Sabal_bermudana,((Sorghum_bicolor,Zea_mays),(Oryza_sativa,Brachypodium_distachyon)))))),((Sarcandra_glabra,((Persea_americana,Liriodendron_tulipifera),(Houttuynia_cordata,Saruma_henryi))),((Eschscholzia_californica,(Aquilegia_formosa,Podophyllum_peltatum)),(Vitis_vinifera,(((Boehmeria_nivea,Medicago_truncatula),(Larrea_tridentata,(Populus_trichocarpa,(Hibiscus_cannabinus,(Carica_papaya,Arabidopsis_thaliana))))),(Kochia_scoparia,(Diospyros_malabarica,((Tanacetum_parthenium,Inula_helenium),(Rosmarinus_officinalis,(Ipomoea_purpurea,(Allamanda_cathartica,Catharanthus_roseus)))))))))))))),((Equisetum_diffusum,((Pteridium_aquilinum,Alsophila_spinulosa),(Angiopteris_evecta,(Psilotum_nudum,Ophioglossum_petiolatum)))),(((Selaginella_moellendorffii_genome,Selaginella_moellendorffii_1kp),(Huperzia_squarrosa,(Pseudolycopodiella_caroliniana,Dendrolycopodium_obscurum))),(((Nothoceros_aenigmaticus,Nothoceros_vincentianus),(((Metzgeria_crassipilis,Bazzania_trilobata),(Sphaerocarpos_texanus,(Riccia_sp,(Marchantia_polymorpha,Marchantia_emarginata)))),(Sphagnum_lescurii,(Polytrichum_commune,(Physcomitrella_patens,(Ceratodon_purpureus,(Hedwigia_ciliata,((Rosulabryum_cf_capillare,Bryum_argenteum),(Leucodon_brachypus,(Thuidium_delicatulum,(Rhynchostegium_serrulatum,Anomodon_attenuatus))))))))))),(((Netrium_digitus,(Roya_obtusa,(Cosmarium_ochthodes,Penium_margaritaceum))),(Spirogyra_sp,(Mesotaenium_endlicherianum,(Cylindrocystis_brebissonii,(Mougeotia_sp,Cylindrocystis_cushleckae))))),((Chaetosphaeridium_globosum,(Coleochaete_irregularis,Coleochaete_scutata)),(Chara_vulgaris,((Klebsormidium_subtile,Entransia_fimbriata),((Mesostigma_viride,(Chlorokybus_atmophyticus,Spirotaenia_minuta)),(Monomastix_opisthostigma,(Pyramimonas_parkeae,(Nephroselmis_pyriformis,Uronema_sp)))))))))))))));
+Final quartet score is: 326972173
+Final normalized quartet score is: 0.9232144516014837
+Weight calculation took 40.796210616 secs
+ASTRAL finished in 49.355 secs
